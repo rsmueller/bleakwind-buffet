@@ -9,7 +9,7 @@ using System.Text;
  */
 namespace Data.Entrees
 {
-	abstract class Entree
+	public abstract class Entree
 	{
 		public abstract double Price { get; }
 		public abstract uint Calories { get; }

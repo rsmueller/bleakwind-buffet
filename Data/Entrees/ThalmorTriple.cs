@@ -9,7 +9,7 @@ using System.Text;
  */
 namespace Data.Entrees
 {
-	class ThalmorTriple : Entree
+	public class ThalmorTriple : Entree
 	{
 		private readonly double price = 8.32;
 		public override double Price => price;

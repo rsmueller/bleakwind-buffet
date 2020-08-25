@@ -10,7 +10,7 @@ using System.Text;
  */
 namespace Data.Entrees
 {
-	class ThugsTBone : Entree
+	public class ThugsTBone : Entree
 	{
 		private readonly double price = 6.44;
 		public override double Price => price;

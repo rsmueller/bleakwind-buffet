@@ -8,7 +8,7 @@ namespace Data.Enums
 	/// <summary>
 	/// Provides available soda flavors
 	/// </summary>
-	enum SodaFlavor
+	public enum SodaFlavor
 	{
 		Blackberry,
 		Cherry,
