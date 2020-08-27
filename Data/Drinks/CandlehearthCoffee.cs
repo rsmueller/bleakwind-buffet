@@ -12,23 +12,24 @@ namespace Data.Drinks
 {
 	public class CandlehearthCoffee : Drink
 	{
-		private readonly double[] priceArray = { 0.75, 1.25, 1.75 };
+		
+		double[] priceArray = { 0.75, 1.25, 1.75 };
 		public override double Price => priceArray[(uint)size];
 
-		private readonly uint[] caloriesArray = { 7, 10, 20 };
+		uint[] caloriesArray = { 7, 10, 20 };
 		public override uint Calories => caloriesArray[(uint)size];
 
-		private readonly Size size = Size.Small;
+		private Size size = Size.Small;
 		public override Size Size => size;
 
-		private readonly List<string> specialInstructions = new List<string>();
+		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private static readonly string[] possibleInstructions = { "Add Ice", "Add cream" };
+		private string[] possibleInstructions = { "Add Ice", "Add cream" };
 
 		public override bool Ice {
 			//notice missing ! for get and 2nd if, this is intended
@@ -55,7 +56,12 @@ namespace Data.Drinks
 
 		public override string ToString()
 		{
-			throw new NotImplementedException();
+			string sizeString = size.ToString();
+
+			if (Decaf)
+				sizeString = sizeString + " Decaf";
+
+			return $"{sizeString} Candlehearth Coffee";
 		}
 	}
 }

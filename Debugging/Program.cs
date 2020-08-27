@@ -1,5 +1,6 @@
 ﻿using System;
 using Data.Entrees;
+using Data.Sides;
 
 namespace Debugging
 {
@@ -7,12 +8,9 @@ namespace Debugging
 	{
 		static void Main(string[] args)
 		{
-			BriarheartBurger burger = new BriarheartBurger();
-			burger.Bun = false;
-			foreach (string ingr in burger.SpecialInstructions)
-			{
-				Console.WriteLine(ingr);
-			}
+
+			VokunSalad salad = new VokunSalad();
+			Console.WriteLine(salad);
 		}
 	}
 }

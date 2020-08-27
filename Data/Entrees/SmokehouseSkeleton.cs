@@ -12,23 +12,23 @@ namespace Data.Entrees
 {
 	public class SmokehouseSkeleton : Entree
 	{
-		private readonly double price = 5.62;
+		private double price = 5.62;
 		public override double Price => price;
 
-		private readonly uint calories = 602;
+		private uint calories = 602;
 		public override uint Calories => calories;
 
-		private readonly string description = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+		private string description = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
 		public override string Description => description;
 
-		private readonly List<string> specialInstructions = new List<string>();
+		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private static readonly string[] possibleInstructions = {"Hold sausage", "Hold eggs", "Hold hash browns", "Hold pancakes"};
+		private string[] possibleInstructions = {"Hold sausage", "Hold eggs", "Hold hash browns", "Hold pancakes"};
 
 		public bool SausageLink {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }

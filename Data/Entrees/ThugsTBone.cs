@@ -12,18 +12,17 @@ namespace Data.Entrees
 {
 	public class ThugsTBone : Entree
 	{
-		private readonly double price = 6.44;
+		private double price = 6.44;
 		public override double Price => price;
 
-		private readonly uint calories = 982;
+		private uint calories = 982;
 		public override uint Calories => calories;
 
-		private readonly string description = "Juicy T-Bone not much else to say";
+		private string description = "Juicy T-Bone not much else to say";
 		public override string Description => description;
 
-		private readonly List<string> specialInstructions = new List<string>();
+		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;
-
 
 		public override string ToString()
 		{

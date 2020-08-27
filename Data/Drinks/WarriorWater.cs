@@ -12,23 +12,24 @@ namespace Data.Drinks
 {
 	public class WarriorWater : Drink
 	{
-		private readonly double[] priceArray = { 0, 0, 0 };
+		
+		double[] priceArray = { 0, 0, 0 };
 		public override double Price => priceArray[(uint)size];
 
-		private readonly uint[] caloriesArray = { 0, 0, 0 };
+		uint[] caloriesArray = { 0, 0, 0 };
 		public override uint Calories => caloriesArray[(uint)size];
 
-		private readonly Size size = Size.Small;
+		private Size size = Size.Small;
 		public override Size Size => size;
 
-		private readonly List<string> specialInstructions = new List<string>();
+		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private static readonly string[] possibleInstructions = { "Hold Ice", "Add lemon" };
+		private string[] possibleInstructions = { "Hold Ice", "Add lemon" };
 
 		public override bool Ice {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }
@@ -51,7 +52,7 @@ namespace Data.Drinks
 
 		public override string ToString()
 		{
-			throw new NotImplementedException();
+			return $"{size} Warrior Water";
 		}
 	}
 }

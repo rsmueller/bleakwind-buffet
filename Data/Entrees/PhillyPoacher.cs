@@ -12,23 +12,23 @@ namespace Data.Entrees
 {
 	public class PhillyPoacher : Entree
 	{
-		private readonly double price = 7.23;
+		private double price = 7.23;
 		public override double Price => price;
 
-		private readonly uint calories = 784;
+		private uint calories = 784;
 		public override uint Calories => calories;
 
-		private readonly string description = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+		private string description = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
 		public override string Description => description;
 
-		private readonly List<string> specialInstructions = new List<string>();
+		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private static readonly string[] possibleInstructions = { "Hold sirloin", "Hold onion", "Hold roll" };
+		private string[] possibleInstructions = { "Hold sirloin", "Hold onion", "Hold roll" };
 
 		public bool Sirloin {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }
