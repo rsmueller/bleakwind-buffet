@@ -7,6 +7,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>Builds\</OutputPath>
     <DocumentationFile></DocumentationFile>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>BleakwindBuffet.Data</RootNamespace>
   </PropertyGroup>
 
 </Project>
