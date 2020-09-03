@@ -12,10 +12,10 @@ namespace Data.Sides
 {
 	public class MadOtarGrits : Side
 	{
-		private double[] priceArray = { .93, 1.28, 1.82 };
+		private static double[] priceArray = { .93, 1.28, 1.82 };
 		public override double Price => priceArray[(int)size];
 
-		private uint[] caloriesArray = { 41, 52, 73 };
+		private static uint[] caloriesArray = { 41, 52, 73 };
 		public override uint Calories => caloriesArray[(int)size];
 
 		private List<string> specialInstructions = new List<string>();

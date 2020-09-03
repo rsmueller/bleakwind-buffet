@@ -12,10 +12,10 @@ namespace Data.Sides
 {
 	public class DragonbornWaffleFries : Side
 	{
-		private double[] priceArray = { .42, .76, .96 };
+		private static double[] priceArray = { .42, .76, .96 };
 		public override double Price => priceArray[(int)size];
 
-		private uint[] caloriesArray = { 77, 89, 100 };
+		private static uint[] caloriesArray = { 77, 89, 100 };
 		public override uint Calories => caloriesArray[(int)size];
 
 		private List<string> specialInstructions = new List<string>();

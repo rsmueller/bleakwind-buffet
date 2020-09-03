@@ -13,10 +13,10 @@ namespace Data.Drinks
 	public class AretinoAppleJuice : Drink
 	{
 		
-		double[] priceArray = { .62, .87, 1.01 };
+		private static double[] priceArray = { .62, .87, 1.01 };
 		public override double Price => priceArray[(uint)size];
 
-		private uint[] caloriesArray = { 44, 88, 132 };
+		private static uint[] caloriesArray = { 44, 88, 132 };
 		public override uint Calories => caloriesArray[(uint)size];
 
 		private Size size = Size.Small;
@@ -29,7 +29,7 @@ namespace Data.Drinks
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private string[] possibleInstructions = { "Add Ice" };
+		private static string[] possibleInstructions = { "Add Ice" };
 
 		public override bool Ice {
 			//notice missing ! for get and 2nd if, this is intended

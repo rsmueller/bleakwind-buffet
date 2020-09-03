@@ -18,7 +18,7 @@ namespace Data.Entrees
 		private uint calories = 982;
 		public override uint Calories => calories;
 
-		private string description = "Juicy T-Bone not much else to say";
+		private static string description = "Juicy T-Bone not much else to say";
 		public override string Description => description;
 
 		private List<string> specialInstructions = new List<string>();

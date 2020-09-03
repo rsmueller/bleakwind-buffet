@@ -13,10 +13,10 @@ namespace Data.Drinks
 	public class WarriorWater : Drink
 	{
 		
-		double[] priceArray = { 0, 0, 0 };
+		private static double[] priceArray = { 0, 0, 0 };
 		public override double Price => priceArray[(uint)size];
 
-		uint[] caloriesArray = { 0, 0, 0 };
+		private static uint[] caloriesArray = { 0, 0, 0 };
 		public override uint Calories => caloriesArray[(uint)size];
 
 		private Size size = Size.Small;
@@ -29,7 +29,7 @@ namespace Data.Drinks
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private string[] possibleInstructions = { "Hold Ice", "Add lemon" };
+		private static string[] possibleInstructions = { "Hold Ice", "Add lemon" };
 
 		public override bool Ice {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }

@@ -17,7 +17,7 @@ namespace Data.Entrees
 		private uint calories = 943;
 		public override uint Calories => calories;
 
-		private string description = "Think you are strong enough to take on the Thalmor? Includes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
+		private static string description = "Think you are strong enough to take on the Thalmor? Includes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
 		public override string Description => description;
 
 		private List<string> specialInstructions = new List<string>();
@@ -27,7 +27,7 @@ namespace Data.Entrees
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private string[] possibleInstructions = { "Hold Bun", "Hold ketchup", "Hold mustard", "Hold pickle", "Hold cheese", "Hold tomato", "Hold lettuce", "Hold mayo", "Hold bacon", "Hold egg" };
+		private static string[] possibleInstructions = { "Hold Bun", "Hold ketchup", "Hold mustard", "Hold pickle", "Hold cheese", "Hold tomato", "Hold lettuce", "Hold mayo", "Hold bacon", "Hold egg" };
 
 		public bool Bun {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }

@@ -18,7 +18,7 @@ namespace Data.Entrees
 		private uint calories = 784;
 		public override uint Calories => calories;
 
-		private string description = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+		private static string description = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
 		public override string Description => description;
 
 		private List<string> specialInstructions = new List<string>();
@@ -28,7 +28,7 @@ namespace Data.Entrees
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private string[] possibleInstructions = { "Hold sirloin", "Hold onion", "Hold roll" };
+		private static string[] possibleInstructions = { "Hold sirloin", "Hold onion", "Hold roll" };
 
 		public bool Sirloin {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }

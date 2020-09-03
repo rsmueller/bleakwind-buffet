@@ -19,7 +19,7 @@ namespace Data.Entrees
 		private uint calories = 404;
 		public override uint Calories => calories;
 
-		private string description = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+		private static string description = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
 		public override string Description => description;
 
 		private List<string> specialInstructions = new List<string>();
@@ -29,7 +29,7 @@ namespace Data.Entrees
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private string[] possibleInstructions = { "Hold brocoli", "Hold tomato", "Hold mushrooms", "Hold cheddar" };
+		private static string[] possibleInstructions = { "Hold brocoli", "Hold tomato", "Hold mushrooms", "Hold cheddar" };
 
 		public bool Brocoli {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }

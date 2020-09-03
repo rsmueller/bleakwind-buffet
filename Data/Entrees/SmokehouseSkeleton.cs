@@ -18,7 +18,7 @@ namespace Data.Entrees
 		private uint calories = 602;
 		public override uint Calories => calories;
 
-		private string description = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+		private static string description = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
 		public override string Description => description;
 
 		private List<string> specialInstructions = new List<string>();
@@ -28,7 +28,7 @@ namespace Data.Entrees
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private string[] possibleInstructions = {"Hold sausage", "Hold eggs", "Hold hash browns", "Hold pancakes"};
+		private static string[] possibleInstructions = {"Hold sausage", "Hold eggs", "Hold hash browns", "Hold pancakes"};
 
 		public bool SausageLink {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }

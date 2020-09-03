@@ -13,10 +13,10 @@ namespace Data.Drinks
 	public class CandlehearthCoffee : Drink
 	{
 		
-		double[] priceArray = { 0.75, 1.25, 1.75 };
+		private static double[] priceArray = { 0.75, 1.25, 1.75 };
 		public override double Price => priceArray[(uint)size];
 
-		uint[] caloriesArray = { 7, 10, 20 };
+		private static uint[] caloriesArray = { 7, 10, 20 };
 		public override uint Calories => caloriesArray[(uint)size];
 
 		private Size size = Size.Small;
@@ -29,7 +29,7 @@ namespace Data.Drinks
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private string[] possibleInstructions = { "Add Ice", "Add cream" };
+		private static string[] possibleInstructions = { "Add Ice", "Add cream" };
 
 		public override bool Ice {
 			//notice missing ! for get and 2nd if, this is intended
