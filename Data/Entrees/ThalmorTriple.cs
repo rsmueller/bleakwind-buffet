@@ -7,7 +7,7 @@ using System.Text;
  * Class Name: ThalmorTriple.cs
  * Purpose: Implements the Thalmor Triple burger entree
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public class ThalmorTriple : Entree
 	{

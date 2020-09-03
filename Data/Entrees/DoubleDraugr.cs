@@ -7,7 +7,7 @@ using System.Text;
  * Class Name: DoubleDraugr.cs
  * Purpose: Implements the double draugr burger entree
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public class DoubleDraugr : Entree
 	{

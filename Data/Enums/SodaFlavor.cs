@@ -3,7 +3,7 @@
  * Class Name: SodaFlavor.cs
  * Purpose: Represents all possible soda flavors through enumeration
  */
-namespace Data.Enums
+namespace BleakwindBuffet.Data.Enums
 {
 	/// <summary>
 	/// Provides available soda flavors

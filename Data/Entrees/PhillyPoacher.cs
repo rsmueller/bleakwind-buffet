@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: PhillyPoacher.cs
  * Purpose: Implements the PhillyPoacher entree
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public class PhillyPoacher : Entree
 	{

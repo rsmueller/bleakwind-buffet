@@ -7,7 +7,7 @@ using System.Text;
  * Class Name: Entree.cs
  * Purpose: Provides a base templete for all entrees
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public abstract class Entree
 	{

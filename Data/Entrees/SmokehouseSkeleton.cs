@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: SmokehouseSkeleton.cs
  * Purpose: Implements the SmokehouseSkeleton breakfast combo entree
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public class SmokehouseSkeleton : Entree
 	{

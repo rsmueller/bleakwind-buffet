@@ -1,4 +1,4 @@
-﻿using Data.Enums;
+﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: DragonbornWaffleFries.cs
  * Purpose: Implements the Dragonbord Waffle Fries side
  */
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
 	public class DragonbornWaffleFries : Side
 	{

@@ -7,7 +7,7 @@ using System.Text;
  * Class Name: Side.cs
  * Purpose: Provides a base templete for all sides
  */
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
 	public abstract class Side
 	{

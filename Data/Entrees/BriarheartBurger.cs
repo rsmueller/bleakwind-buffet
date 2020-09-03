@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: BriarheartBurger.cs
  * Purpose: Implements the braiarheart burger entree
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public class BriarheartBurger : Entree
 	{

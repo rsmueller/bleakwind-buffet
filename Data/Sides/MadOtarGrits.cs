@@ -1,4 +1,4 @@
-﻿using Data.Enums;
+﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: MadOtarGrits.cs
  * Purpose: Implements the Mad Otar Grits side
  */
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
 	public class MadOtarGrits : Side
 	{

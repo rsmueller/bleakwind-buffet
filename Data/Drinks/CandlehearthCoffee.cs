@@ -1,4 +1,4 @@
-﻿using Data.Enums;
+﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: CandlehearthCoffee.cs
  * Purpose: Implements the Candlehearth Coffee drink
  */
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
 	public class CandlehearthCoffee : Drink
 	{

@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: GardenOrcOmelette.cs
  * Purpose: Implements the GardenOrcOmelette breakfast combo entree
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public class GardenOrcOmelette : Entree
 	{

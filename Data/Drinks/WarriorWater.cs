@@ -1,4 +1,4 @@
-﻿using Data.Enums;
+﻿using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: WarriorWater.cs
  * Purpose: Implements the Warrior Water drink
  */
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
 	public class WarriorWater : Drink
 	{

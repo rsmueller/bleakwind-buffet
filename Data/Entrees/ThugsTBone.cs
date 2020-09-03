@@ -8,7 +8,7 @@ using System.Text;
  * Class Name: ThugsTBone.cs
  * Purpose: Implements the Thugs T-Bone entree
  */
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
 	public class ThugsTBone : Entree
 	{

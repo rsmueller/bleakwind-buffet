@@ -7,7 +7,7 @@ using System.Text;
  * Class Name: Drink.cs
  * Purpose: Provides a base templete for all drinks
  */
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
 	public abstract class Drink
 	{
