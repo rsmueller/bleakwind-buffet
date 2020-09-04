@@ -10,22 +10,40 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
+	/// <summary>
+	/// Class for representing the Sailor Soda drink
+	/// </summary>
 	public class SailorSoda : Drink
 	{
 		
 		private static double[] priceArray = { 1.42, 1.74, 2.07 };
+		/// <summary>
+		/// The price of the Sailor Soda
+		/// </summary>
 		public override double Price => priceArray[(uint)size];
 
 		private static uint[] caloriesArray = { 117, 153, 205 };
+		/// <summary>
+		/// The calories in the Sailor Soda
+		/// </summary>
 		public override uint Calories => caloriesArray[(uint)size];
 		
 		private Size size = Size.Small;
+		/// <summary>
+		/// The size of the Sailor Soda
+		/// </summary>
 		public override Size Size { get => size; set => size = value; }
 
 		private SodaFlavor flavor = SodaFlavor.Cherry;
+		/// <summary>
+		/// The flavor of the Sailor Soda
+		/// </summary>
 		public SodaFlavor Flavor { get => flavor; set => flavor = value; }
 
 		private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Sailor Soda
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
@@ -34,6 +52,9 @@ namespace BleakwindBuffet.Data.Drinks
 		/// </summary>
 		private static string[] possibleInstructions = { "Hold Ice" };
 
+		/// <summary>
+		/// If the Sailor Soda has ice in it
+		/// </summary>
 		public override bool Ice {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }
 			set {
@@ -42,7 +63,10 @@ namespace BleakwindBuffet.Data.Drinks
 				else specialInstructions.Remove(possibleInstructions[0]);
 			}
 		}
-
+		/// <summary>
+		/// Returns a description of the Sailor Soda
+		/// </summary>
+		/// <returns>A string describing the Sailor Soda</returns>
 		public override string ToString()
 		{
 

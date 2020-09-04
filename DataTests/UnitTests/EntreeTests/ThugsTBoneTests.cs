@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// Tests for the Thugs T-Bone Entree
+    /// </summary>
     public class ThugsTBoneTests
     {
         [Fact]

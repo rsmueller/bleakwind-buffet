@@ -9,17 +9,32 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Entrees
 {
+	/// <summary>
+	/// Class for representing a general entree
+	/// </summary>
 	public abstract class Entree
 	{
+		/// <summary>
+		/// The price of the entree
+		/// </summary>
 		public abstract double Price { get; }
+		/// <summary>
+		/// The calories in the entree
+		/// </summary>
 		public abstract uint Calories { get; }
+		/// <summary>
+		/// The description of the entree
+		/// </summary>
 		public abstract string Description { get; }
+		/// <summary>
+		/// A list of special instructions for preparing the entree
+		/// </summary>
 		public abstract List<string> SpecialInstructions { get; }
 
 		/// <summary>
-		/// A String representation of the Entree
+		/// Returns a description of the entree
 		/// </summary>
-		/// <returns>The Entree's name</returns>
+		/// <returns>A string describing the entree</returns>
 		public override abstract string ToString();
 	}
 }

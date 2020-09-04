@@ -9,23 +9,33 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Entrees
 {
+	/// <summary>
+	/// Class for representing the Double Draugr entree
+	/// </summary>
 	public class DoubleDraugr : Entree
 	{
-		
-		
-		
-		double price = 7.32;
+        double price = 7.32;
+		/// <summary>
+		/// The price of the Double Draugr
+		/// </summary>
 		public override double Price => price;
 
-		
-		uint calories = 843;
+        uint calories = 843;
+		/// <summary>
+		/// The calories in the Double Draugr
+		/// </summary>
 		public override uint Calories => calories;
 
-		
-		string description = "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
+        string description = "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
+		/// <summary>
+		/// The description of the Double Draugr
+		/// </summary>
 		public override string Description => description;
 
-		private List<string> specialInstructions = new List<string>();
+        private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Double Draugr
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
@@ -34,6 +44,9 @@ namespace BleakwindBuffet.Data.Entrees
 		/// </summary>
 		private static string[] possibleInstructions = { "Hold Bun", "Hold Ketchup", "Hold Mustard", "Hold Pickle", "Hold Cheese", "Hold Tomato", "Hold Lettuce", "Hold Mayo" };
 
+		/// <summary>
+		/// If the Double Draugr has a bun
+		/// </summary>
 		public bool Bun {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }
 			set {
@@ -42,6 +55,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[0]);
 			}
 		}
+		/// <summary>
+		/// If the Double Draugr has ketchup
+		/// </summary>
 		public bool Ketchup {
 			get { return !specialInstructions.Contains(possibleInstructions[1]); }
 			set {
@@ -50,6 +66,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[1]);
 			}
 		}
+		/// <summary>
+		/// If the Double Draugr has mustard
+		/// </summary>
 		public bool Mustard {
 			get { return !specialInstructions.Contains(possibleInstructions[2]); }
 			set {
@@ -58,6 +77,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[2]);
 			}
 		}
+		/// <summary>
+		/// If the Double Draugr has pickles
+		/// </summary>
 		public bool Pickle {
 			get { return !specialInstructions.Contains(possibleInstructions[3]); }
 			set {
@@ -66,6 +88,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[3]);
 			}
 		}
+		/// <summary>
+		/// If the Double Draugr has cheese
+		/// </summary>
 		public bool Cheese {
 			get { return !specialInstructions.Contains(possibleInstructions[4]); }
 			set {
@@ -74,6 +99,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[4]);
 			}
 		}
+		/// <summary>
+		/// If the Double Draugr has tomato
+		/// </summary>
 		public bool Tomato {
 			get { return !specialInstructions.Contains(possibleInstructions[5]); }
 			set {
@@ -82,6 +110,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[5]);
 			}
 		}
+		/// <summary>
+		/// If the Double Draugr has lettuce
+		/// </summary>
 		public bool Lettuce {
 			get { return !specialInstructions.Contains(possibleInstructions[6]); }
 			set {
@@ -90,6 +121,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[6]);
 			}
 		}
+		/// <summary>
+		/// If the Double Draugr has mayo
+		/// </summary>
 		public bool Mayo {
 			get { return !specialInstructions.Contains(possibleInstructions[7]); }
 			set {
@@ -99,6 +133,11 @@ namespace BleakwindBuffet.Data.Entrees
 			}
 		}
 
+
+		/// <summary>
+		/// Returns a description of the Double Draugr
+		/// </summary>
+		/// <returns>A string describing the Double Draugr</returns>
 		public override string ToString()
 		{
 			return "Double Draugr Burger";

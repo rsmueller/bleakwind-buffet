@@ -10,13 +10,17 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+   
+    /// <summary>
+    /// Tests for the Garden Orc Omelette Entree
+    /// </summary>
     public class GardenOrcOmeletteTests
     {
         [Fact]
         public void ShouldIncludeBroccoliByDefault()
         {
             var x = new GardenOrcOmelette();
-            Assert.True(x.Brocoli);
+            Assert.True(x.Broccoli);
         }
 
         [Fact]
@@ -44,10 +48,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldBeAbleToSetBroccoli()
         {
             var x = new GardenOrcOmelette();
-            x.Brocoli = false;
-            Assert.False(x.Brocoli);
-            x.Brocoli = true;
-            Assert.True(x.Brocoli);
+            x.Broccoli = false;
+            Assert.False(x.Broccoli);
+            x.Broccoli = true;
+            Assert.True(x.Broccoli);
         }
 
         [Fact]
@@ -102,7 +106,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             var x = new GardenOrcOmelette();
             
-            x.Brocoli = includeBroccoli;
+            x.Broccoli = includeBroccoli;
             x.Mushrooms = includeMushrooms;
             x.Tomato = includeTomato;
             x.Cheddar = includeCheddar;

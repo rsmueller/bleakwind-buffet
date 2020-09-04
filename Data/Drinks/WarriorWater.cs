@@ -10,19 +10,34 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
+	/// <summary>
+	/// Class for representing the Warrior Water drink
+	/// </summary>
 	public class WarriorWater : Drink
 	{
 		
 		private static double[] priceArray = { 0, 0, 0 };
+		/// <summary>
+		/// The price of the Warrior Water
+		/// </summary>
 		public override double Price => priceArray[(uint)size];
 
 		private static uint[] caloriesArray = { 0, 0, 0 };
+		/// <summary>
+		/// The calories in the Warrior Water
+		/// </summary>
 		public override uint Calories => caloriesArray[(uint)size];
 
 		private Size size = Size.Small;
+		/// <summary>
+		/// The size of the Warrior Water
+		/// </summary>
 		public override Size Size { get => size; set => size = value; }
 
 		private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Warrior Water
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
@@ -31,6 +46,9 @@ namespace BleakwindBuffet.Data.Drinks
 		/// </summary>
 		private static string[] possibleInstructions = { "Hold Ice", "Add Lemon" };
 
+		/// <summary>
+		/// If the Warrior Water has ice in it
+		/// </summary>
 		public override bool Ice {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }
 			set {
@@ -39,6 +57,9 @@ namespace BleakwindBuffet.Data.Drinks
 				else specialInstructions.Remove(possibleInstructions[0]);
 			}
 		}
+		/// <summary>
+		/// If the Warrior Water has lemon in it
+		/// </summary>
 		public bool Lemon {
 			//notice missing ! for get and 2nd if, this is intended
 			//because operates on an "add" basis not conventional "hold" basis.
@@ -49,7 +70,10 @@ namespace BleakwindBuffet.Data.Drinks
 				else specialInstructions.Remove(possibleInstructions[1]);
 			}
 		}
-
+		/// <summary>
+		/// Returns a description of the Warrior Water
+		/// </summary>
+		/// <returns>A string describing the Warrior Water</returns>
 		public override string ToString()
 		{
 			return $"{size} Warrior Water";

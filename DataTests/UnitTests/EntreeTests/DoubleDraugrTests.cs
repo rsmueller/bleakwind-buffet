@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// Tests for the Double Draugr Burger Entree
+    /// </summary>
     public class DoubleDraugrTests
     {   
         [Fact]

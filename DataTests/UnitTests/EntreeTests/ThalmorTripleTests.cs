@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// Tests for the Thalmor Triple Burger Entree
+    /// </summary>
     public class ThalmorTripleTests
     {
         [Fact]

@@ -10,19 +10,34 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
+	/// <summary>
+	/// Class for representing the Aretino Apple Juice drink
+	/// </summary>
 	public class AretinoAppleJuice : Drink
 	{
 		
 		private static double[] priceArray = { .62, .87, 1.01 };
+		/// <summary>
+		/// The price of the Aretino Apple Juice
+		/// </summary>
 		public override double Price => priceArray[(uint)size];
 
 		private static uint[] caloriesArray = { 44, 88, 132 };
+		/// <summary>
+		/// The calories in the Aretino Apple Juice
+		/// </summary>
 		public override uint Calories => caloriesArray[(uint)size];
 
 		private Size size = Size.Small;
+		/// <summary>
+		/// The size of the Aretino Apple Juice
+		/// </summary>
 		public override Size Size { get => size; set => size = value; }
 
-		private List<string> specialInstructions = new List<string>();
+        private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Aretino Apple Juice
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
@@ -31,6 +46,9 @@ namespace BleakwindBuffet.Data.Drinks
 		/// </summary>
 		private static string[] possibleInstructions = { "Add Ice" };
 
+		/// <summary>
+		/// If the Aretino Apple Juice has ice in it
+		/// </summary>
 		public override bool Ice {
 			//notice missing ! for get and 2nd if, this is intended
 			//because operates on an "add" basis not conventional "hold" basis.
@@ -42,6 +60,10 @@ namespace BleakwindBuffet.Data.Drinks
 			}
 		}
 
+		/// <summary>
+		/// Returns a description of the Aretino Apple Juice
+		/// </summary>
+		/// <returns>A string describing the Aretino Apple Juice</returns>
 		public override string ToString()
 		{
 			return $"{size} Aretino Apple Juice";

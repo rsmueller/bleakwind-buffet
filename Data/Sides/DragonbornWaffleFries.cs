@@ -10,20 +10,39 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Sides
 {
+	/// <summary>
+	/// Class for representing the Dragonborn Waffle Fries side
+	/// </summary>
 	public class DragonbornWaffleFries : Side
 	{
 		private static double[] priceArray = { .42, .76, .96 };
+		/// <summary>
+		/// The price of the Dragonborn Waffle Fries
+		/// </summary>
 		public override double Price => priceArray[(int)size];
 
-		private static uint[] caloriesArray = { 77, 89, 100 };
+        private static uint[] caloriesArray = { 77, 89, 100 };
+		/// <summary>
+		/// The calories in the Dragonborn Waffle Fries
+		/// </summary>
 		public override uint Calories => caloriesArray[(int)size];
 
-		private List<string> specialInstructions = new List<string>();
+        private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Dragonborn Waffle Fries
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		private Size size;
+		/// <summary>
+		/// The size of the Dragonborn Waffle Fries
+		/// </summary>
 		public override Size Size { get => size; set => size = value; }
 
+		/// <summary>
+		/// Returns a description of the Dragonborn Waffle Fries
+		/// </summary>
+		/// <returns>A string describing the Dragonborn Waffle Fries</returns>
 		public override string ToString()
 		{
 			return $"{size.ToString()} Dragonborn Waffle Fries";

@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// Tests for the Philly Poacher Entree
+    /// </summary>
     public class PhillyPoacherTests
     {
         [Fact]

@@ -10,19 +10,34 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
+	/// <summary>
+	/// Class for representing the Markarth Milk drink
+	/// </summary>
 	public class MarkarthMilk : Drink
 	{
 		
 		private static double[] priceArray = { 1.05, 1.11, 1.22 };
+		/// <summary>
+		/// The price of the Markarth Milk
+		/// </summary>
 		public override double Price => priceArray[(uint)size];
 
 		private static uint[] caloriesArray = { 56, 72, 93 };
+		/// <summary>
+		/// The calories in the Markarth Milk
+		/// </summary>
 		public override uint Calories => caloriesArray[(uint)size];
 
 		private Size size = Size.Small;
+		/// <summary>
+		/// The size of the Markarth Milk
+		/// </summary>
 		public override Size Size { get => size; set => size = value; }
 
 		private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Markarth Milk
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
@@ -31,6 +46,9 @@ namespace BleakwindBuffet.Data.Drinks
 		/// </summary>
 		private static string[] possibleInstructions = { "Add Ice" };
 
+		/// <summary>
+		/// If the Markarth Milk has ice in it
+		/// </summary>
 		public override bool Ice {
 			//notice missing ! for get and 2nd if, this is intended
 			//because operates on an "add" basis not conventional "hold" basis.
@@ -41,7 +59,10 @@ namespace BleakwindBuffet.Data.Drinks
 				else specialInstructions.Remove(possibleInstructions[0]);
 			}
 		}
-
+		/// <summary>
+		/// Returns a description of the Markarth Milk
+		/// </summary>
+		/// <returns>A string describing the Markarth Milk</returns>
 		public override string ToString()
 		{
 			return $"{size} Markarth Milk";

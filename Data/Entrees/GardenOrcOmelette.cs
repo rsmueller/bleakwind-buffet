@@ -10,19 +10,34 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Entrees
 {
+	/// <summary>
+	/// A class representing the Garden Orc Omelette
+	/// </summary>
 	public class GardenOrcOmelette : Entree
 	{
-		
-		private double price = 4.57;
+
+        private double price = 4.57;
+		/// <summary>
+		/// The price of the Garden Orc Omelette
+		/// </summary>
 		public override double Price => price;
 
-		private uint calories = 404;
+        private uint calories = 404;
+		/// <summary>
+		/// The calories in the Garden Orc Omelette
+		/// </summary>
 		public override uint Calories => calories;
 
-		private static string description = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+        private static string description = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+		/// <summary>
+		/// The description of the Garden Orc Omelette
+		/// </summary>
 		public override string Description => description;
 
-		private List<string> specialInstructions = new List<string>();
+        private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Garden Orc Omelette
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
@@ -31,14 +46,20 @@ namespace BleakwindBuffet.Data.Entrees
 		/// </summary>
 		private static string[] possibleInstructions = { "Hold Broccoli", "Hold Tomato", "Hold Mushrooms", "Hold Cheddar" };
 
-		public bool Brocoli {
+		/// <summary>
+		/// If the Garden Orc Omelette has broccoli
+		/// </summary>
+		public bool Broccoli {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }
 			set {
-				if (value == Brocoli) return;
+				if (value == Broccoli) return;
 				if (!value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
 			}
 		}
+		/// <summary>
+		/// If the Garden Orc Omelette has tomato
+		/// </summary>
 		public bool Tomato {
 			get { return !specialInstructions.Contains(possibleInstructions[1]); }
 			set {
@@ -47,6 +68,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[1]);
 			}
 		}
+		/// <summary>
+		/// If the Garden Orc Omelette has mushrooms
+		/// </summary>
 		public bool Mushrooms {
 			get { return !specialInstructions.Contains(possibleInstructions[2]); }
 			set {
@@ -55,6 +79,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[2]);
 			}
 		}
+		/// <summary>
+		/// If the Garden Orc Omelette has cheddar in it
+		/// </summary>
 		public bool Cheddar {
 			get { return !specialInstructions.Contains(possibleInstructions[3]); }
 			set {
@@ -64,6 +91,10 @@ namespace BleakwindBuffet.Data.Entrees
 			}
 		}
 
+		/// <summary>
+		/// Returns a description of the Garden Orc Omelette
+		/// </summary>
+		/// <returns>A string describing the Garden Orc Omelette</returns>
 		public override string ToString()
 		{
 			return "Garden Orc Omelette";

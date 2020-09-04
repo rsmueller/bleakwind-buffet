@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
+    /// <summary>
+    /// Tests for the Mad Otar Grits Side
+    /// </summary>
     public class MadOtarGritsTests
     {
         [Fact]

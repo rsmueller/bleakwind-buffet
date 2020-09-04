@@ -10,18 +10,33 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Entrees
 {
+	/// <summary>
+	/// Class for representing the Philly Poacher entree
+	/// </summary>
 	public class PhillyPoacher : Entree
 	{
 		private double price = 7.23;
+		/// <summary>
+		/// The price of the Philly Poacher
+		/// </summary>
 		public override double Price => price;
 
 		private uint calories = 784;
+		/// <summary>
+		/// The calories in the Philly Poacher
+		/// </summary>
 		public override uint Calories => calories;
 
-		private static string description = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+        private static string description = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+		/// <summary>
+		/// The description of the Philly Poacher
+		/// </summary>
 		public override string Description => description;
 
-		private List<string> specialInstructions = new List<string>();
+        private List<string> specialInstructions = new List<string>();
+		/// <summary>
+		/// A list of special instructions for preparing the Philly Poacher
+		/// </summary>
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		/// <summary>
@@ -30,6 +45,9 @@ namespace BleakwindBuffet.Data.Entrees
 		/// </summary>
 		private static string[] possibleInstructions = { "Hold Sirloin", "Hold Onion", "Hold Roll" };
 
+		/// <summary>
+		/// If the Philly Poacher has sirloin
+		/// </summary>
 		public bool Sirloin {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }
 			set {
@@ -38,6 +56,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[0]);
 			}
 		}
+		/// <summary>
+		/// If the Philly Poacher has onion
+		/// </summary>
 		public bool Onion {
 			get { return !specialInstructions.Contains(possibleInstructions[1]); }
 			set {
@@ -46,6 +67,9 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[1]);
 			}
 		}
+		/// <summary>
+		/// If the Philly Poacher has a roll
+		/// </summary>
 		public bool Roll {
 			get { return !specialInstructions.Contains(possibleInstructions[2]); }
 			set {
@@ -54,7 +78,10 @@ namespace BleakwindBuffet.Data.Entrees
 				else specialInstructions.Remove(possibleInstructions[2]);
 			}
 		}
-
+		/// <summary>
+		/// Returns a description of the Warrior Water
+		/// </summary>
+		/// <returns>A string describing the Warrior Water</returns>
 		public override string ToString()
 		{
 			return "Philly Poacher";

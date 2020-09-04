@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// Tests for the Smokehouse Skeleton Entree
+    /// </summary>
     public class SmokehouseSkeletonTests
     {        
         [Fact]

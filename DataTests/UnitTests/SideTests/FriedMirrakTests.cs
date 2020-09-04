@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
+    /// <summary>
+    /// Tests for the Fried Miraak Side
+    /// </summary>
     public class FriedMiraakTests
     {
         [Fact]

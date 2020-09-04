@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
+    /// <summary>
+    /// Tests for the Dragonborn Waffle Fries Side
+    /// </summary>
     public class DragonbornWaffleFriesTests
     {
         [Fact]
