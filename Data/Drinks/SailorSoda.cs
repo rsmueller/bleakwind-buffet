@@ -20,10 +20,10 @@ namespace BleakwindBuffet.Data.Drinks
 		public override uint Calories => caloriesArray[(uint)size];
 		
 		private Size size = Size.Small;
-		public override Size Size => size;
+		public override Size Size { get => size; set => size = value; }
 
 		private SodaFlavor flavor = SodaFlavor.Cherry;
-		public SodaFlavor Flavor => flavor;
+		public SodaFlavor Flavor { get => flavor; set => flavor = value; }
 
 		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;

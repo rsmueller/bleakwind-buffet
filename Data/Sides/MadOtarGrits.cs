@@ -12,17 +12,17 @@ namespace BleakwindBuffet.Data.Sides
 {
 	public class MadOtarGrits : Side
 	{
-		private static double[] priceArray = { .93, 1.28, 1.82 };
+		private static double[] priceArray = { 1.22, 1.58, 1.93 };
 		public override double Price => priceArray[(int)size];
 
-		private static uint[] caloriesArray = { 41, 52, 73 };
+		private static uint[] caloriesArray = { 105, 142, 179 };
 		public override uint Calories => caloriesArray[(int)size];
 
 		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		private Size size;
-		public override Size Size => size;
+		public override Size Size { get => size; set => size = value; }
 
 		public override string ToString()
 		{

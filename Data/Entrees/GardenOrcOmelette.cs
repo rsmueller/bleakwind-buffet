@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
 	public class GardenOrcOmelette : Entree
 	{
 		
-		double price = 4.57;
+		private double price = 4.57;
 		public override double Price => price;
 
 		private uint calories = 404;
@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Entrees
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private static string[] possibleInstructions = { "Hold brocoli", "Hold tomato", "Hold mushrooms", "Hold cheddar" };
+		private static string[] possibleInstructions = { "Hold Broccoli", "Hold Tomato", "Hold Mushrooms", "Hold Cheddar" };
 
 		public bool Brocoli {
 			get { return !specialInstructions.Contains(possibleInstructions[0]); }

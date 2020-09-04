@@ -22,7 +22,7 @@ namespace BleakwindBuffet.Data.Sides
 		public override List<string> SpecialInstructions => specialInstructions;
 
 		private Size size;
-		public override Size Size => size;
+		public override Size Size { get => size; set => size = value; }
 
 		public override string ToString()
 		{

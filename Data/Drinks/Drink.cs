@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
 		public abstract double Price { get; }
 		public abstract uint Calories { get; }
 		public abstract List<string> SpecialInstructions { get; }
-		public abstract Enums.Size Size { get; }
+		public abstract Enums.Size Size { get; set; }
 		public abstract bool Ice { get; set; }
 
 		/// <summary>

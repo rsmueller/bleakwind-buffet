@@ -20,7 +20,7 @@ namespace BleakwindBuffet.Data.Drinks
 		public override uint Calories => caloriesArray[(uint)size];
 
 		private Size size = Size.Small;
-		public override Size Size => size;
+		public override Size Size { get => size; set => size = value; }
 
 		private List<string> specialInstructions = new List<string>();
 		public override List<string> SpecialInstructions => specialInstructions;
@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Drinks
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
-		private static string[] possibleInstructions = { "Add Ice", "Add cream" };
+		private static string[] possibleInstructions = { "Add Ice", "Add Cream" };
 
 		public override bool Ice {
 			//notice missing ! for get and 2nd if, this is intended

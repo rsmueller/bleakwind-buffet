@@ -32,7 +32,7 @@ namespace BleakwindBuffet.Data.Entrees
 		/// A list of possible special instruction strings that can be added to and removed from SpecialInstructions;
 		/// Index order is very important as the bools: Bun, Ketchup, Mustard, Pickle, and Cheese rely on this order.
 		/// </summary>
-		private static string[] possibleInstructions = {"Hold Bun", "Hold ketchup", "Hold mustard", "Hold pickle", "Hold cheese"};
+		private static string[] possibleInstructions = {"Hold Bun", "Hold Ketchup", "Hold Mustard", "Hold Pickle", "Hold Cheese"};
 
 		public bool Bun { 
 			get { return !specialInstructions.Contains(possibleInstructions[0]); } 
