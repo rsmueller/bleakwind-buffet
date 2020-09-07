@@ -160,7 +160,7 @@ namespace BleakwindBuffet.Data.Entrees
 		/// <returns>A string describing the Thalmor Triple</returns>
 		public override string ToString()
 		{
-			return "Thalmor Triple Burger";
+			return "Thalmor Triple";
 		}
 
 	}

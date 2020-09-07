@@ -140,7 +140,7 @@ namespace BleakwindBuffet.Data.Entrees
 		/// <returns>A string describing the Double Draugr</returns>
 		public override string ToString()
 		{
-			return "Double Draugr Burger";
+			return "Double Draugr";
 		}
 
 	}
