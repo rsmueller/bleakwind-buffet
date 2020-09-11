@@ -14,7 +14,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     /// Tests for the Double Draugr Burger Entree
     /// </summary>
     public class DoubleDraugrTests
-    {   
+    {
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            var x = new DoubleDraugr();
+            Assert.IsAssignableFrom<IOrderItem>(x);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var x = new DoubleDraugr();
+            Assert.IsAssignableFrom<Entree>(x);
+        }
         [Fact]
         public void ShouldIncludeBunByDefault()
         {

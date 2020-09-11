@@ -16,6 +16,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThalmorTripleTests
     {
         [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            var x = new ThalmorTriple();
+            Assert.IsAssignableFrom<IOrderItem>(x);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var x = new ThalmorTriple();
+            Assert.IsAssignableFrom<Entree>(x);
+        }
+        [Fact]
         public void ShouldIncludeBunByDefault()
         {
             var x = new ThalmorTriple();
@@ -305,7 +318,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             var x = new ThalmorTriple();
-            Assert.Equal("Thalmor Triple Burger", x.ToString());
+            Assert.Equal("Thalmor Triple", x.ToString());
         }
     }
 }

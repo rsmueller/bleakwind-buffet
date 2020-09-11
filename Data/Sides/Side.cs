@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Sides
 	/// <summary>
 	/// Class for representing a general side
 	/// </summary>
-	public abstract class Side
+	public abstract class Side : IOrderItem
 	{
 		/// <summary>
 		/// Price of the side

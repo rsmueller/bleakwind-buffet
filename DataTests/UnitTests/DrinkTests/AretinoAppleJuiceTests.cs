@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -15,6 +16,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     /// </summary>
     public class AretinoAppleJuiceTests
     {
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            var x = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<IOrderItem>(x);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var x = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(x);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {

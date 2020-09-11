@@ -16,6 +16,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     /// </summary>
     public class CandlehearthCoffeeTests
     {
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItemInterface()
+        {
+            var x = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(x);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToAbstractDrinkClass()
+        {
+            var x = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(x);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {

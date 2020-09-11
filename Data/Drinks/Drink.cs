@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
 	/// <summary>
 	/// Class for representing a general drink
 	/// </summary>
-	public abstract class Drink
+	public abstract class Drink : IOrderItem
 	{
 		/// <summary>
 		/// The price of the drink
