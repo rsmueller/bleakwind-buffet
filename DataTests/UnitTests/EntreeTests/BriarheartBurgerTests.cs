@@ -21,6 +21,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             var x = new BriarheartBurger();
             Assert.IsAssignableFrom<IOrderItem>(x);
         }
+        [Fact]
+        public void ShouldBeAssignableToBaseEntree()
+        {
+            var x = new BriarheartBurger();
+            Assert.IsAssignableFrom<Entree>(x);
+        }
 
         [Fact]
         public void ShouldBeAssignableToAbstractDrinkClass()

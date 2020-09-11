@@ -23,6 +23,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldBeAssignableToBaseEntree()
+        {
+            var x = new ThugsTBone();
+            Assert.IsAssignableFrom<Entree>(x);
+        }
+
+        [Fact]
         public void ShouldBeAssignableToAbstractDrinkClass()
         {
             var x = new ThugsTBone();

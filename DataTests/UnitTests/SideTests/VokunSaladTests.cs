@@ -23,6 +23,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.IsAssignableFrom<IOrderItem>(x);
         }
 
+
+        [Fact]
+        public void ShouldBeAssignableToBaseSide()
+        {
+            var x = new VokunSalad();
+            Assert.IsAssignableFrom<Side>(x);
+        }
+
+
         [Fact]
         public void ShouldBeAssignableToAbstractDrinkClass()
         {

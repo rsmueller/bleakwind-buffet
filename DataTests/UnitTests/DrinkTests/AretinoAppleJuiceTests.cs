@@ -24,6 +24,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
+        public void ShouldBeAssignableToBaseDrink()
+        {
+            var x = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(x);
+        }
+
+        [Fact]
         public void ShouldBeAssignableToAbstractDrinkClass()
         {
             var x = new AretinoAppleJuice();

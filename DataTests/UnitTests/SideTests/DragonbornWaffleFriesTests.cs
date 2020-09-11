@@ -24,6 +24,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ShouldBeAssignableToBaseSide()
+        {
+            var x = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<Side>(x);
+        }
+
+        [Fact]
         public void ShouldBeAssignableToAbstractDrinkClass()
         {
             var x = new DragonbornWaffleFries();
