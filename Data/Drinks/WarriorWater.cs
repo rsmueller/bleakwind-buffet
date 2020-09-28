@@ -15,7 +15,11 @@ namespace BleakwindBuffet.Data.Drinks
 	/// </summary>
 	public class WarriorWater : Drink
 	{
-		
+		/// <summary>
+		/// The display name of the Warrior Water
+		/// </summary>
+		public override string DisplayName => "Warrior Water";
+
 		private static double[] priceArray = { 0, 0, 0 };
 		/// <summary>
 		/// The price of the Warrior Water

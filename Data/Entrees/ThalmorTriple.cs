@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
 	/// </summary>
 	public class ThalmorTriple : Entree
 	{
+		/// <summary>
+		/// The display name of the Thalmor Triple
+		/// </summary>
+		public override string DisplayName => "Thalmor Triple";
+
 		private double price = 8.32;
 		/// <summary>
 		/// The price of the Thalmor Triple

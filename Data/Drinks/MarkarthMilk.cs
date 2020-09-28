@@ -15,7 +15,11 @@ namespace BleakwindBuffet.Data.Drinks
 	/// </summary>
 	public class MarkarthMilk : Drink
 	{
-		
+		/// <summary>
+		/// The display name of the Markarth Milk
+		/// </summary>
+		public override string DisplayName => "Markarth Milk";
+
 		private static double[] priceArray = { 1.05, 1.11, 1.22 };
 		/// <summary>
 		/// The price of the Markarth Milk

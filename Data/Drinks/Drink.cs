@@ -15,6 +15,10 @@ namespace BleakwindBuffet.Data.Drinks
 	public abstract class Drink : IOrderItem
 	{
 		/// <summary>
+		/// The display name of the drink
+		/// </summary>
+		public abstract string DisplayName { get; }
+		/// <summary>
 		/// The price of the drink
 		/// </summary>
 		public abstract double Price { get; }

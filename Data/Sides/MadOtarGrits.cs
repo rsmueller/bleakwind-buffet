@@ -15,7 +15,12 @@ namespace BleakwindBuffet.Data.Sides
 	/// </summary>
 	public class MadOtarGrits : Side
 	{
-        private static double[] priceArray = { 1.22, 1.58, 1.93 };
+		/// <summary>
+		/// The display name of the Mad Otar Grits
+		/// </summary>
+		public override string DisplayName => "Mad Otar Grits";
+
+		private static double[] priceArray = { 1.22, 1.58, 1.93 };
 		/// <summary>
 		/// The price of the Mad Otar Grits
 		/// </summary>

@@ -15,7 +15,12 @@ namespace BleakwindBuffet.Data.Sides
 	/// </summary>
 	public class VokunSalad : Side
 	{
-        private static double[] priceArray = { .93, 1.28, 1.82 };
+		/// <summary>
+		/// The display name of the Vokun Salad
+		/// </summary>
+		public override string DisplayName => "Vokun Salad";
+
+		private static double[] priceArray = { .93, 1.28, 1.82 };
 		/// <summary>
 		/// The price of the Vokun Salad
 		/// </summary>

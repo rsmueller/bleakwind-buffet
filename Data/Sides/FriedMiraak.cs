@@ -15,7 +15,12 @@ namespace BleakwindBuffet.Data.Sides
 	/// </summary>
 	public class FriedMiraak : Side
 	{
-        private static double[] priceArray = { 1.78, 2.01, 2.88 };
+		/// <summary>
+		/// The display name of the Fried Miraak
+		/// </summary>
+		public override string DisplayName => "Fried Miraak";
+
+		private static double[] priceArray = { 1.78, 2.01, 2.88 };
 		/// <summary>
 		/// The price of the Fried Miraak
 		/// </summary>

@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Sides
 	/// </summary>
 	public class DragonbornWaffleFries : Side
 	{
+		/// <summary>
+		/// The display name of the Dragonborn Waffle Fries
+		/// </summary>
+		public override string DisplayName => "Dragonborn Waffle Fries";
+
 		private static double[] priceArray = { .42, .76, .96 };
 		/// <summary>
 		/// The price of the Dragonborn Waffle Fries

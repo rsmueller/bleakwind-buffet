@@ -9,6 +9,12 @@ namespace BleakwindBuffet.Data
 	/// </summary>
 	public interface IOrderItem
 	{
+
+		/// <summary>
+		/// The string that should be displayed as a menu item
+		/// </summary>
+		public string DisplayName { get; }
+
 		/// <summary>
 		/// The price of the item
 		/// </summary>
@@ -21,5 +27,7 @@ namespace BleakwindBuffet.Data
 		/// A list of special instructions for preparing the item
 		/// </summary>
 		public List<string> SpecialInstructions { get; }
+
+
 	}
 }

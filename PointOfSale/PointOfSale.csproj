@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="src\aretino_apple_juice.jpg" />
+    <None Remove="src\briarheart_burger.jpg" />
+    <None Remove="src\candlehearth_coffee.jpg" />
+    <None Remove="src\double_draugr.jpg" />
+    <None Remove="src\dragonborn_waffle_fries.jpg" />
+    <None Remove="src\error_no_img.png" />
+    <None Remove="src\fried_miraak.jpg" />
+    <None Remove="src\garden_orc_omelette.jpg" />
+    <None Remove="src\mad_otar_grits.jpg" />
+    <None Remove="src\markarth_milk.jpg" />
+    <None Remove="src\philly_poacher.jpg" />
+    <None Remove="src\sailor_soda.jpg" />
+    <None Remove="src\smokehouse_skeleton.jpg" />
+    <None Remove="src\thalmor_triple.jpg" />
+    <None Remove="src\thugs_tbone.jpg" />
+    <None Remove="src\vokun_salad.jpg" />
+    <None Remove="src\warrior_water.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="src\aretino_apple_juice.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\briarheart_burger.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\candlehearth_coffee.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\double_draugr.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\dragonborn_waffle_fries.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\error_no_img.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\fried_miraak.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\garden_orc_omelette.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\mad_otar_grits.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\markarth_milk.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\philly_poacher.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\sailor_soda.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\smokehouse_skeleton.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\thalmor_triple.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\thugs_tbone.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\vokun_salad.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\warrior_water.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
+</Project>

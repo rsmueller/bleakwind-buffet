@@ -15,8 +15,12 @@ namespace BleakwindBuffet.Data.Entrees
 	/// </summary>
 	public class GardenOrcOmelette : Entree
 	{
+		/// <summary>
+		/// The display name of the Garden Orc Omelette
+		/// </summary>
+		public override string DisplayName => "Garden Orc Omelette";
 
-        private double price = 4.57;
+		private double price = 4.57;
 		/// <summary>
 		/// The price of the Garden Orc Omelette
 		/// </summary>

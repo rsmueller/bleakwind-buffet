@@ -117,5 +117,49 @@ namespace BleakwindBuffet.Data
 				.Concat(Sides())
 				.Concat(Drinks());
 		}
+
+		public static IEnumerable<Type> FullMenuTypes()
+		{
+			foreach (var item in EntreeTypes())
+			{
+				yield return item;
+			}
+			foreach (var item in SideTypes())
+			{
+				yield return item;
+			}
+			foreach (var item in DrinkTypes())
+			{
+				yield return item;
+			}
+		}
+
+		public static IEnumerable<Type> EntreeTypes()
+		{
+			yield return typeof(BriarheartBurger);
+			yield return typeof(DoubleDraugr);
+			yield return typeof(ThalmorTriple);
+			yield return typeof(GardenOrcOmelette);
+			yield return typeof(SmokehouseSkeleton);
+			yield return typeof(PhillyPoacher);
+			yield return typeof(ThugsTBone);
+		}
+
+		public static IEnumerable<Type> SideTypes()
+		{
+			yield return typeof(DragonbornWaffleFries);
+			yield return typeof(FriedMiraak);
+			yield return typeof(MadOtarGrits);
+			yield return typeof(VokunSalad);
+		}
+
+		public static IEnumerable<Type> DrinkTypes()
+		{
+			yield return typeof(AretinoAppleJuice);
+			yield return typeof(CandlehearthCoffee);
+			yield return typeof(MarkarthMilk);
+			yield return typeof(SailorSoda);
+			yield return typeof(WarriorWater);
+		}
 	}
 }

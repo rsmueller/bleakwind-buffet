@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Entrees
 	/// </summary>
 	public class SmokehouseSkeleton : Entree
 	{
+		/// <summary>
+		/// The display name of the Smokehouse Skeleton
+		/// </summary>
+		public override string DisplayName => "Smokehouse Skeleton";
+
 		private double price = 5.62;
 		/// <summary>
 		/// The price of the Smokehouse Skeleton

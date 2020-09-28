@@ -14,7 +14,12 @@ namespace BleakwindBuffet.Data.Entrees
 	/// </summary>
 	public class DoubleDraugr : Entree
 	{
-        double price = 7.32;
+		/// <summary>
+		/// The display name of the Double Draugr
+		/// </summary>
+		public override string DisplayName => "Double Draugr";
+
+		double price = 7.32;
 		/// <summary>
 		/// The price of the Double Draugr
 		/// </summary>

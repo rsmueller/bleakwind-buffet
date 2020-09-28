@@ -15,8 +15,12 @@ namespace BleakwindBuffet.Data.Entrees
 	/// </summary>
 	public class BriarheartBurger : Entree
 	{
-		
-		
+		/// <summary>
+		/// The display name of the Briarheart Burger
+		/// </summary>
+		public override string DisplayName => "Briarheart Burger";
+
+
 		double price = 6.32;
 		/// <summary>
 		/// The price of the Briarheart Burger

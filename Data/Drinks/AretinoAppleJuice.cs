@@ -15,7 +15,11 @@ namespace BleakwindBuffet.Data.Drinks
 	/// </summary>
 	public class AretinoAppleJuice : Drink
 	{
-		
+		/// <summary>
+		/// The display name of the Aretino Apple Juice
+		/// </summary>
+		public override string DisplayName => "Aretino Apple Juice";
+
 		private static double[] priceArray = { .62, .87, 1.01 };
 		/// <summary>
 		/// The price of the Aretino Apple Juice
@@ -45,6 +49,7 @@ namespace BleakwindBuffet.Data.Drinks
 		/// Index order is very important as the ingredient bools rely on this order.
 		/// </summary>
 		private static string[] possibleInstructions = { "Add Ice" };
+
 
 		/// <summary>
 		/// If the Aretino Apple Juice has ice in it

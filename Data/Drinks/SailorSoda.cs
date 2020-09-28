@@ -15,7 +15,11 @@ namespace BleakwindBuffet.Data.Drinks
 	/// </summary>
 	public class SailorSoda : Drink
 	{
-		
+		/// <summary>
+		/// The display name of the Sailor Soda
+		/// </summary>
+		public override string DisplayName => "Sailor Soda";
+
 		private static double[] priceArray = { 1.42, 1.74, 2.07 };
 		/// <summary>
 		/// The price of the Sailor Soda

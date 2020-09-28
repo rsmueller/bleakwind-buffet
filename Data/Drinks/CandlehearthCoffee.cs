@@ -15,7 +15,12 @@ namespace BleakwindBuffet.Data.Drinks
 	/// </summary>
 	public class CandlehearthCoffee : Drink
 	{
-		
+
+		/// <summary>
+		/// The display name of the Candlehearth Coffee
+		/// </summary>
+		public override string DisplayName => "Candlehearth Coffee";
+
 		private static double[] priceArray = { 0.75, 1.25, 1.75 };
 		/// <summary>
 		/// The price of the Candlehearth Coffee

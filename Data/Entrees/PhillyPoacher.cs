@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Entrees
 	/// </summary>
 	public class PhillyPoacher : Entree
 	{
+		/// <summary>
+		/// The display name of the Philly Poacher
+		/// </summary>
+		public override string DisplayName => "Philly Poacher";
+
 		private double price = 7.23;
 		/// <summary>
 		/// The price of the Philly Poacher

@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Entrees
 	/// </summary>
 	public class ThugsTBone : Entree
 	{
+		/// <summary>
+		/// The display name of the Thugs T-Bone
+		/// </summary>
+		public override string DisplayName => "Thugs T-Bone";
+
 		private double price = 6.44;
 		/// <summary>
 		/// The price of the Thugs T-Bone
