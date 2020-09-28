@@ -118,6 +118,10 @@ namespace BleakwindBuffet.Data
 				.Concat(Drinks());
 		}
 
+		/// <summary>
+		/// Full menu but with just the types
+		/// </summary>
+		/// <returns></returns>
 		public static IEnumerable<Type> FullMenuTypes()
 		{
 			foreach (var item in EntreeTypes())
@@ -134,6 +138,10 @@ namespace BleakwindBuffet.Data
 			}
 		}
 
+		/// <summary>
+		/// All entrees but just the types
+		/// </summary>
+		/// <returns></returns>
 		public static IEnumerable<Type> EntreeTypes()
 		{
 			yield return typeof(BriarheartBurger);
@@ -145,6 +153,10 @@ namespace BleakwindBuffet.Data
 			yield return typeof(ThugsTBone);
 		}
 
+		/// <summary>
+		/// All sides but just the types
+		/// </summary>
+		/// <returns></returns>
 		public static IEnumerable<Type> SideTypes()
 		{
 			yield return typeof(DragonbornWaffleFries);
@@ -153,6 +165,10 @@ namespace BleakwindBuffet.Data
 			yield return typeof(VokunSalad);
 		}
 
+		/// <summary>
+		/// All Drinks but just the types
+		/// </summary>
+		/// <returns></returns>
 		public static IEnumerable<Type> DrinkTypes()
 		{
 			yield return typeof(AretinoAppleJuice);
