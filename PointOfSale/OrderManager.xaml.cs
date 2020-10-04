@@ -25,7 +25,9 @@ namespace PointOfSale
 	/// </summary>
 	public partial class OrderManager : UserControl
 	{
-
+		/// <summary>
+		/// Reference to the runtime OrderManager object
+		/// </summary>
 		public static OrderManager singleton;
 
 		private ItemCustomizationPanel currentCustomizationPanel;

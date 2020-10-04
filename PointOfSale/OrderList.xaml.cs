@@ -48,10 +48,21 @@ namespace PointOfSale
 			list = new List<IOrderItem>(); 
 		}
 
+		/// <summary>
+		/// Finish the order
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void OnFinishOrder(object sender, RoutedEventArgs e)
 		{
-
+			//TODO: To be implemented
 		}
+
+		/// <summary>
+		/// Clear the order of all items
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void OnCancelOrder(object sender, RoutedEventArgs e)
 		{
 			stack.Children.Clear();

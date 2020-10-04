@@ -32,7 +32,13 @@ namespace PointOfSale
 
 		private static readonly string[] POSSIBLE_OPTIONS = { "Bun", "Ketchup", "Mustard", "Pickle", "Cheese", "Tomato", "Lettuce", "Mayo", "Bacon", "Egg", "Ice", "Decaf", "RoomForCream", "Lemon","Broccoli", "Mushrooms","Tomato","Cheddar","Sirloin","Onion","Roll","SausageLink","HashBrowns", "Flavor", "Size" };
 
+		/// <summary>
+		/// Button that closes the item customization panel without writing to order
+		/// </summary>
 		public Button BtnClose { get { return btnClose; } }
+		/// <summary>
+		/// Button that adds the item to the order and closes the item customization panel
+		/// </summary>
 		public Button BtnAddToOrder { get { return btnAddToOrder; } }
 
 		public ItemCustomizationPanel()
@@ -96,6 +102,11 @@ namespace PointOfSale
 			}
 		}
 
+		/// <summary>
+		/// Updates the property of the item associated with the sender
+		/// </summary>
+		/// <param name="sender">A ComboBox that triggered the event</param>
+		/// <param name="e">arguements</param>
 		private void OnComboBoxSelectionChanged(object sender, RoutedEventArgs e)
 		{
 			ComboBox box = sender as ComboBox;
@@ -103,6 +114,11 @@ namespace PointOfSale
 			property.SetValue(this.DataContext, box.SelectedItem);
 		}
 
+		/// <summary>
+		/// Updates the property of the item associated with the sender
+		/// </summary>
+		/// <param name="sender">A CheckBox that triggered the event</param>
+		/// <param name="e">arguements</param>
 		private void OnCheckBoxChecked(object sender, RoutedEventArgs e)
 		{
 			CheckBox box = sender as CheckBox;
@@ -110,6 +126,11 @@ namespace PointOfSale
 			property.SetValue(this.DataContext, true);
 		}
 
+		/// <summary>
+		/// Updates the property of the item associated with the sender
+		/// </summary>
+		/// <param name="sender">A CheckBox that triggered the event</param>
+		/// <param name="e">arguements</param>
 		private void OnCheckBoxUnchecked(object sender, RoutedEventArgs e)
 		{
 			CheckBox box = sender as CheckBox;

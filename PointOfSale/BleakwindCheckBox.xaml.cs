@@ -24,8 +24,13 @@ namespace PointOfSale
 	/// </summary>
 	public partial class BleakwindCheckBox : UserControl
 	{
-
+		/// <summary>
+		/// The actual checkbox object
+		/// </summary>
 		public CheckBox Box { get { return checkbox; } }
+		/// <summary>
+		/// The textblock to be used with BleakwindCheckBox
+		/// </summary>
 		public TextBlock TextBlock { get { return textblock; } }
 		public BleakwindCheckBox()
 		{

@@ -12,6 +12,7 @@
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <local:MenuCategoryBar x:Name="menuCategoryBar" Grid.Row="0"/>
+        <!-- MenuDisplay can be disabled and a ItemCustomizationPanel can take its place-->
         <local:MenuDisplay x:Name="menuDisplay" Grid.Row="1"/>
     </Grid>
 </UserControl>

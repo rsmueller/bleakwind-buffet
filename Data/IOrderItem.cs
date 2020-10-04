@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
+/*
+ * Author: Riley Mueller
+ * Class Name: IOrderItem.cs
+ * Purpose: Interface for properties all orderable items should have
+ */
 namespace BleakwindBuffet.Data
 {
 	/// <summary>

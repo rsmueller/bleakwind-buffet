@@ -27,10 +27,19 @@ namespace PointOfSale
 	/// </summary>
 	public partial class Item : UserControl
 	{
+		/// <summary>
+		/// The ImageSource representing this item
+		/// </summary>
 		public ImageSource ItemImage { get { return itemImage.Source; } set { itemImage.Source = value; } }
 
+		/// <summary>
+		/// The name to of the item
+		/// </summary>
 		public string ItemName { get { return itemName.Text; } set { itemName.Text = value; } }
 
+		/// <summary>
+		/// The Type representation of the item
+		/// </summary>
 		public Type ItemType { get; set; }
 
 		public Item()

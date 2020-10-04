@@ -7,6 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/*
+ * Author: Riley Mueller
+ * Class Name: Menu.cs
+ * Purpose: A "library" to quickly grab IEnumerable's of items on the menu
+ */
 namespace BleakwindBuffet.Data
 {
 	/// <summary>
