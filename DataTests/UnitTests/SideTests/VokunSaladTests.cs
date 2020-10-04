@@ -17,6 +17,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class VokunSaladTests
     {
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new VokunSalad();
+            Assert.Equal("Vokun Salad", x.DisplayName);
+        }
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new VokunSalad();
@@ -95,6 +101,36 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             var x = new VokunSalad();
             x.Size = size;
             Assert.Equal(name, x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifySizePropertyChanged()
+        {
+            var x = new VokunSalad();
+
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPricePropertyChanged()
+        {
+            var x = new VokunSalad();
+
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesPropertyChanged()
+        {
+            var x = new VokunSalad();
+
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Small; });
         }
     }
 }

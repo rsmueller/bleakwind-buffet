@@ -61,7 +61,8 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == SausageLink) return;
                 if (!value) specialInstructions.Add(possibleInstructions[0]);
                 else specialInstructions.Remove(possibleInstructions[0]);
-            }
+				OnPropertyChanged("SausageLink");
+			}
         }
 		/// <summary>
 		/// If the Smokehouse Skeleton has egg
@@ -72,6 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Egg) return;
 				if (!value) specialInstructions.Add(possibleInstructions[1]);
 				else specialInstructions.Remove(possibleInstructions[1]);
+				OnPropertyChanged("Egg");
 			}
 		}
 		/// <summary>
@@ -83,6 +85,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == HashBrowns) return;
 				if (!value) specialInstructions.Add(possibleInstructions[2]);
 				else specialInstructions.Remove(possibleInstructions[2]);
+				OnPropertyChanged("HashBrowns");
 			}
 		}
 		/// <summary>
@@ -94,6 +97,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Pancake) return;
 				if (!value) specialInstructions.Add(possibleInstructions[3]);
 				else specialInstructions.Remove(possibleInstructions[3]);
+				OnPropertyChanged("Pancake");
 			}
 		}
 		/// <summary>

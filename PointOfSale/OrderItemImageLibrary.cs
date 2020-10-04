@@ -8,10 +8,16 @@ using System.Text;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
+/*
+ * Author: Riley Mueller
+ * Last Modified: 10/1/2020
+ * Class Name: OrderItemImageLibrary.cs
+ * Purpose: Static class to grab an image given an IOrderItem type
+ */
 namespace PointOfSale
 {
 	/// <summary>
-	/// References to ImageSources given an IOrderItem
+	/// References to ImageSources given an IOrderItem Type
 	/// </summary>
 	public static class OrderItemImageLibrary
 	{

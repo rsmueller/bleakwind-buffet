@@ -5,8 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="160">
-    <StackPanel Name="stack" Orientation="Vertical">
-            
-    </StackPanel>
+             d:DesignHeight="450" d:DesignWidth="160" Background="#424242">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0">
+            <StackPanel Name="stack" Orientation="Vertical"/>
+        </ScrollViewer>
+        <local:BleakwindButton x:Name="btnCancelOrder" Grid.Row="1" FontSize="20">Cancel Order</local:BleakwindButton>
+        <local:BleakwindButton x:Name="btnFinishOrder" Grid.Row="2" FontSize="20">Finish Order</local:BleakwindButton>
+    </Grid>
 </UserControl>

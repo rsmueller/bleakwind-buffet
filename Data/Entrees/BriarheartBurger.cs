@@ -64,7 +64,8 @@ namespace BleakwindBuffet.Data.Entrees
                 if (value == Bun) return;
                 if (!value) specialInstructions.Add(possibleInstructions[0]);
                 else specialInstructions.Remove(possibleInstructions[0]);
-            }
+				OnPropertyChanged("Bun");
+			}
         }
 		/// <summary>
 		/// If the Briarheart Burger has ketchup
@@ -75,6 +76,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Ketchup) return;
 				if (!value) specialInstructions.Add(possibleInstructions[1]);
 				else specialInstructions.Remove(possibleInstructions[1]);
+				OnPropertyChanged("Ketchup");
 			}
 		}
 		/// <summary>
@@ -86,6 +88,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Mustard) return;
 				if (!value) specialInstructions.Add(possibleInstructions[2]);
 				else specialInstructions.Remove(possibleInstructions[2]);
+				OnPropertyChanged("Mustard");
 			}
 		}
 		/// <summary>
@@ -97,6 +100,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Pickle) return;
 				if (!value) specialInstructions.Add(possibleInstructions[3]);
 				else specialInstructions.Remove(possibleInstructions[3]);
+				OnPropertyChanged("Pickle");
 			}
 		}
 		/// <summary>
@@ -108,6 +112,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Cheese) return;
 				if (!value) specialInstructions.Add(possibleInstructions[4]);
 				else specialInstructions.Remove(possibleInstructions[4]);
+				OnPropertyChanged("Cheese");
 			}
 		}
 

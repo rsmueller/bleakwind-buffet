@@ -16,6 +16,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class SmokehouseSkeletonTests
     {
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new SmokehouseSkeleton();
+            Assert.Equal("Smokehouse Skeleton", x.DisplayName);
+        }
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new SmokehouseSkeleton();
@@ -167,6 +173,38 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             var x = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifySausageLinkPropertyChanged()
+        {
+            var x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "SausageLink", () => { x.SausageLink = false; });
+            Assert.PropertyChanged(x, "SausageLink", () => { x.SausageLink = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyEggPropertyChanged()
+        {
+            var x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "Egg", () => { x.Egg = false; });
+            Assert.PropertyChanged(x, "Egg", () => { x.Egg = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyHashBrownsPropertyChanged()
+        {
+            var x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "HashBrowns", () => { x.HashBrowns = false; });
+            Assert.PropertyChanged(x, "HashBrowns", () => { x.HashBrowns = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPancakePropertyChanged()
+        {
+            var x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "Pancake", () => { x.Pancake = false; });
+            Assert.PropertyChanged(x, "Pancake", () => { x.Pancake = true; });
         }
     }
 }

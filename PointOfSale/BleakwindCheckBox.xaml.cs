@@ -14,23 +14,20 @@ using System.Windows.Shapes;
 /*
  * Author: Riley Mueller
  * Last Modified: 10/1/2020
- * Class Name: MenuCategoryBar.cs
- * Purpose: Houses buttons to swap between possible menus
+ * Class Name: BleakwindCheckBox.cs
+ * Purpose: Houses a checkbox to theme to Bleakwind theme
  */
 namespace PointOfSale
 {
 	/// <summary>
-	/// Interaction logic for MenuCategoryBar.xaml
+	/// Interaction logic for BleakwindCheckBox.xaml
 	/// </summary>
-	public partial class MenuCategoryBar : UserControl
+	public partial class BleakwindCheckBox : UserControl
 	{
 
-		public Button AllItemsMenuButton { get { return btnAllItems; } }
-		public Button EntreeMenuButton { get { return btnEntrees; } }
-		public Button SidesMenuButton { get { return btnSides; } }
-		public Button DrinksMenuButton { get { return btnDrinks; } }
-
-		public MenuCategoryBar()
+		public CheckBox Box { get { return checkbox; } }
+		public TextBlock TextBlock { get { return textblock; } }
+		public BleakwindCheckBox()
 		{
 			InitializeComponent();
 		}

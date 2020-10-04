@@ -15,6 +15,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Size = BleakwindBuffet.Data.Enums.Size;
 
+/*
+ * Author: Riley Mueller
+ * Last Modified: 10/1/2020
+ * Class Name: ItemCustomizationPanel.cs
+ * Purpose: A panel to customize the order of an item after it has been selected
+ * Dynamically loads in the items public properties to fill with drop downs or check boxes
+ */
 namespace PointOfSale
 {
 	/// <summary>
@@ -23,7 +30,7 @@ namespace PointOfSale
 	public partial class ItemCustomizationPanel : UserControl
 	{
 
-		private static readonly string[] POSSIBLE_OPTIONS = { "Bun", "Ketchup", "Mustard", "Pickle", "Cheese", "Tomato", "Lettuce", "Mayo", "Bacon", "Egg", "Ice", "Decaf", "RoomForCream", "Lemon", "Flavor", "Size" };
+		private static readonly string[] POSSIBLE_OPTIONS = { "Bun", "Ketchup", "Mustard", "Pickle", "Cheese", "Tomato", "Lettuce", "Mayo", "Bacon", "Egg", "Ice", "Decaf", "RoomForCream", "Lemon","Broccoli", "Mushrooms","Tomato","Cheddar","Sirloin","Onion","Roll","SausageLink","HashBrowns", "Flavor", "Size" };
 
 		public Button BtnClose { get { return btnClose; } }
 		public Button BtnAddToOrder { get { return btnAddToOrder; } }
@@ -32,8 +39,6 @@ namespace PointOfSale
 		{
 			InitializeComponent();
 		}
-
-		private IOrderItem orderItem;
 
 		/// <summary>
 		/// Checks if the item has a property in POSSIBLE_OPTIONS and if so adds a checkbox or combo box for that property
@@ -45,26 +50,27 @@ namespace PointOfSale
 
 			label.Content = $"Customization Window for {item.DisplayName}";
 
-			orderItem = item;
+			this.DataContext = item;
 
-			foreach (string option in POSSIBLE_OPTIONS)
+			foreach (var property in item.GetType().GetProperties())
 			{
-				var property = item.GetType().GetProperty(option);
 				if (property == null)
 					continue;
 
+				string option = property.Name;
+
 				if (property.PropertyType == typeof(Boolean))
 				{
-
-					CheckBox box = new CheckBox();
+					BleakwindCheckBox x = new BleakwindCheckBox();
+					CheckBox box = x.Box;
 					box.Tag = property;
 					box.Checked += OnCheckBoxChecked;
 					box.Unchecked += OnCheckBoxUnchecked;
-					box.Content = option;
+					x.TextBlock.Text = option;
 
 					box.IsChecked = (bool)property.GetValue(item);
 
-					stack.Children.Add(box);
+					stack.Children.Add(x);
 				}
 				else if (property.PropertyType == typeof(Size))
 				{
@@ -94,21 +100,21 @@ namespace PointOfSale
 		{
 			ComboBox box = sender as ComboBox;
 			PropertyInfo property = box.Tag as PropertyInfo;
-			property.SetValue(orderItem, box.SelectedItem);
+			property.SetValue(this.DataContext, box.SelectedItem);
 		}
 
 		private void OnCheckBoxChecked(object sender, RoutedEventArgs e)
 		{
 			CheckBox box = sender as CheckBox;
 			PropertyInfo property = box.Tag as PropertyInfo;
-			property.SetValue(orderItem, true);
+			property.SetValue(this.DataContext, true);
 		}
 
 		private void OnCheckBoxUnchecked(object sender, RoutedEventArgs e)
 		{
 			CheckBox box = sender as CheckBox;
 			PropertyInfo property = box.Tag as PropertyInfo;
-			property.SetValue(orderItem, false);
+			property.SetValue(this.DataContext, false);
 		}
 
 	}

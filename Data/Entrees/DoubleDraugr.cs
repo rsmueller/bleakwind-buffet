@@ -58,6 +58,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Bun) return;
 				if (!value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
+				OnPropertyChanged("Bun");
 			}
 		}
 		/// <summary>
@@ -69,6 +70,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Ketchup) return;
 				if (!value) specialInstructions.Add(possibleInstructions[1]);
 				else specialInstructions.Remove(possibleInstructions[1]);
+				OnPropertyChanged("Ketchup");
 			}
 		}
 		/// <summary>
@@ -80,6 +82,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Mustard) return;
 				if (!value) specialInstructions.Add(possibleInstructions[2]);
 				else specialInstructions.Remove(possibleInstructions[2]);
+				OnPropertyChanged("Mustard");
 			}
 		}
 		/// <summary>
@@ -91,6 +94,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Pickle) return;
 				if (!value) specialInstructions.Add(possibleInstructions[3]);
 				else specialInstructions.Remove(possibleInstructions[3]);
+				OnPropertyChanged("Pickle");
 			}
 		}
 		/// <summary>
@@ -102,6 +106,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Cheese) return;
 				if (!value) specialInstructions.Add(possibleInstructions[4]);
 				else specialInstructions.Remove(possibleInstructions[4]);
+				OnPropertyChanged("Cheese");
 			}
 		}
 		/// <summary>
@@ -113,6 +118,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Tomato) return;
 				if (!value) specialInstructions.Add(possibleInstructions[5]);
 				else specialInstructions.Remove(possibleInstructions[5]);
+				OnPropertyChanged("Tomato");
 			}
 		}
 		/// <summary>
@@ -124,6 +130,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Lettuce) return;
 				if (!value) specialInstructions.Add(possibleInstructions[6]);
 				else specialInstructions.Remove(possibleInstructions[6]);
+				OnPropertyChanged("Lettuce");
 			}
 		}
 		/// <summary>
@@ -135,6 +142,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Mayo) return;
 				if (!value) specialInstructions.Add(possibleInstructions[7]);
 				else specialInstructions.Remove(possibleInstructions[7]);
+				OnPropertyChanged("Mayo");
 			}
 		}
 

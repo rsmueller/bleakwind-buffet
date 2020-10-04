@@ -13,6 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * Author: Riley Mueller
+ * Last Modified: 10/1/2020
+ * Class Name: MenuDisplay.cs
+ * Purpose: Display portion of the menu, loads in many Item.cs objects and populates them 
+ * with information from the IOrderItem type given from Menu
+ */
 namespace PointOfSale
 {
 	/// <summary>

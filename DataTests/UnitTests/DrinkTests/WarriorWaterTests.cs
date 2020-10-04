@@ -17,6 +17,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 	public class WarriorWaterTests
 	{
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new WarriorWater();
+            Assert.Equal("Warrior Water", x.DisplayName);
+        }
+
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new WarriorWater();
@@ -131,6 +138,54 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             var x = new WarriorWater();
             x.Size = size;
             Assert.Equal(name, x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifySizePropertyChanged()
+        {
+            var x = new WarriorWater();
+
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPricePropertyChanged()
+        {
+            var x = new WarriorWater();
+
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesPropertyChanged()
+        {
+            var x = new WarriorWater();
+
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyIcePropertyChanged()
+        {
+            var x = new WarriorWater();
+
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = false; });
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyLemonPropertyChanged()
+        {
+            var x = new WarriorWater();
+
+            Assert.PropertyChanged(x, "Lemon", () => { x.Lemon = true; });
+            Assert.PropertyChanged(x, "Lemon", () => { x.Lemon = false; });
         }
     }
 }

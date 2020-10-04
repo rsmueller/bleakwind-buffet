@@ -18,6 +18,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     {
 
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new CandlehearthCoffee();
+            Assert.Equal("Candlehearth Coffee", x.DisplayName);
+        }
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new CandlehearthCoffee();
@@ -176,6 +182,63 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             x.Decaf = decaf;
             x.Size = size;
             Assert.Equal(name, x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifyDecafPropertyChanged()
+        {
+            var x = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(x, "Decaf", () => { x.Decaf = true; });
+            Assert.PropertyChanged(x, "Decaf", () => { x.Decaf = false; });
+        }
+
+        [Fact]
+        public void ShouldNotifyRoomForCreamPropertyChanged()
+        {
+            var x = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(x, "RoomForCream", () => { x.RoomForCream = true; });
+            Assert.PropertyChanged(x, "RoomForCream", () => { x.RoomForCream = false; });
+        }
+
+        [Fact]
+        public void ShouldNotifySizePropertyChanged()
+        {
+            var x = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPricePropertyChanged()
+        {
+            var x = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesPropertyChanged()
+        {
+            var x = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyIcePropertyChanged()
+        {
+            var x = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = true; });
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = false; });
         }
     }
 }

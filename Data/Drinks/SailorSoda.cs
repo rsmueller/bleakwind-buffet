@@ -36,13 +36,26 @@ namespace BleakwindBuffet.Data.Drinks
 		/// <summary>
 		/// The size of the Sailor Soda
 		/// </summary>
-		public override Size Size { get => size; set => size = value; }
+		public override Size Size {
+			get => size;
+			set {
+				size = value;
+				OnPropertyChanged("Calories");
+				OnPropertyChanged("Price");
+				OnPropertyChanged("Size");
+			}
+		}
 
 		private SodaFlavor flavor = SodaFlavor.Cherry;
 		/// <summary>
 		/// The flavor of the Sailor Soda
 		/// </summary>
-		public SodaFlavor Flavor { get => flavor; set => flavor = value; }
+		public SodaFlavor Flavor { get => flavor; 
+			set {
+				flavor = value;
+				OnPropertyChanged("Flavor");
+			}
+		}
 
 		private List<string> specialInstructions = new List<string>();
 		/// <summary>
@@ -65,6 +78,7 @@ namespace BleakwindBuffet.Data.Drinks
 				if (value == Ice) return;
 				if (!value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
+				OnPropertyChanged("Ice");
 			}
 		}
 		/// <summary>

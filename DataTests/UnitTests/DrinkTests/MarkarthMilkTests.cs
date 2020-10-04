@@ -18,6 +18,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     {
 
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new MarkarthMilk();
+            Assert.Equal("Markarth Milk", x.DisplayName);
+        }
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new MarkarthMilk();
@@ -120,6 +126,45 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             var x = new MarkarthMilk();
             x.Size = size;
             Assert.Equal(name, x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifySizePropertyChanged()
+        {
+            var x = new MarkarthMilk();
+
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPricePropertyChanged()
+        {
+            var x = new MarkarthMilk();
+
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesPropertyChanged()
+        {
+            var x = new MarkarthMilk();
+
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyIcePropertyChanged()
+        {
+            var x = new MarkarthMilk();
+
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = true; });
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = false; });
         }
     }
 }

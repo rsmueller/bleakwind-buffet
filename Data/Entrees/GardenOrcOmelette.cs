@@ -59,6 +59,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Broccoli) return;
 				if (!value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
+				OnPropertyChanged("Broccoli");
 			}
 		}
 		/// <summary>
@@ -70,6 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Tomato) return;
 				if (!value) specialInstructions.Add(possibleInstructions[1]);
 				else specialInstructions.Remove(possibleInstructions[1]);
+				OnPropertyChanged("Tomato");
 			}
 		}
 		/// <summary>
@@ -81,6 +83,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Mushrooms) return;
 				if (!value) specialInstructions.Add(possibleInstructions[2]);
 				else specialInstructions.Remove(possibleInstructions[2]);
+				OnPropertyChanged("Mushrooms");
 			}
 		}
 		/// <summary>
@@ -92,6 +95,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (value == Cheddar) return;
 				if (!value) specialInstructions.Add(possibleInstructions[3]);
 				else specialInstructions.Remove(possibleInstructions[3]);
+				OnPropertyChanged("Cheddar");
 			}
 		}
 

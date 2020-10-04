@@ -17,6 +17,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new GardenOrcOmelette();
+            Assert.Equal("Garden Orc Omelette", x.DisplayName);
+        }
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new GardenOrcOmelette();
@@ -169,6 +175,38 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             var x = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifyBroccoliPropertyChanged()
+        {
+            var x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Broccoli", () => { x.Broccoli = false; });
+            Assert.PropertyChanged(x, "Broccoli", () => { x.Broccoli = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyMushroomsPropertyChanged()
+        {
+            var x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Mushrooms", () => { x.Mushrooms = false; });
+            Assert.PropertyChanged(x, "Mushrooms", () => { x.Mushrooms = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyTomatoPropertyChanged()
+        {
+            var x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Tomato", () => { x.Tomato = false; });
+            Assert.PropertyChanged(x, "Tomato", () => { x.Tomato = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCheddarPropertyChanged()
+        {
+            var x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Cheddar", () => { x.Cheddar = false; });
+            Assert.PropertyChanged(x, "Cheddar", () => { x.Cheddar = true; });
         }
     }
 }

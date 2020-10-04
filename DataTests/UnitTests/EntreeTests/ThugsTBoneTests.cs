@@ -16,6 +16,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new ThugsTBone();
+            Assert.Equal("Thugs T-Bone", x.DisplayName);
+        }
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new ThugsTBone();

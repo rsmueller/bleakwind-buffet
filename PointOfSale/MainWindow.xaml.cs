@@ -13,6 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * Author: Riley Mueller
+ * Last Modified: 10/1/2020
+ * Class Name: MainWindow.cs
+ * Purpose: Extension of the Window that runs the program
+ */
 namespace PointOfSale
 {
 	/// <summary>

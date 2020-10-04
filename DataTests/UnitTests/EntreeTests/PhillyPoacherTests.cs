@@ -15,6 +15,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     /// </summary>
     public class PhillyPoacherTests
     {
+
+        [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new PhillyPoacher();
+            Assert.Equal("Philly Poacher", x.DisplayName);
+        }
         [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
@@ -142,6 +149,30 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             var x = new PhillyPoacher();
             Assert.Equal("Philly Poacher", x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifySirloinPropertyChanged()
+        {
+            var x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Sirloin", () => { x.Sirloin = false; });
+            Assert.PropertyChanged(x, "Sirloin", () => { x.Sirloin = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyOnionPropertyChanged()
+        {
+            var x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Onion", () => { x.Onion = false; });
+            Assert.PropertyChanged(x, "Onion", () => { x.Onion = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyRollPropertyChanged()
+        {
+            var x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Roll", () => { x.Roll = false; });
+            Assert.PropertyChanged(x, "Roll", () => { x.Roll = true; });
         }
     }
 }

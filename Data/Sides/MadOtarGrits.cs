@@ -42,7 +42,15 @@ namespace BleakwindBuffet.Data.Sides
 		/// <summary>
 		/// The size of the Mad Otar Grits
 		/// </summary>
-		public override Size Size { get => size; set => size = value; }
+		public override Size Size {
+			get => size;
+			set {
+				size = value;
+				OnPropertyChanged("Calories");
+				OnPropertyChanged("Price");
+				OnPropertyChanged("Size");
+			}
+		}
 
 
 		/// <summary>

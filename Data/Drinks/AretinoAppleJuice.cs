@@ -36,9 +36,17 @@ namespace BleakwindBuffet.Data.Drinks
 		/// <summary>
 		/// The size of the Aretino Apple Juice
 		/// </summary>
-		public override Size Size { get => size; set => size = value; }
+		public override Size Size {
+			get => size;
+			set {
+				size = value;
+				OnPropertyChanged("Calories");
+				OnPropertyChanged("Price");
+				OnPropertyChanged("Size");
+			}
+		}
 
-        private List<string> specialInstructions = new List<string>();
+		private List<string> specialInstructions = new List<string>();
 		/// <summary>
 		/// A list of special instructions for preparing the Aretino Apple Juice
 		/// </summary>
@@ -62,6 +70,7 @@ namespace BleakwindBuffet.Data.Drinks
 				if (value == Ice) return;
 				if (value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
+				OnPropertyChanged("Ice");
 			}
 		}
 

@@ -12,6 +12,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * Author: Riley Mueller
+ * Last Modified: 10/1/2020
+ * Class Name: OrderManager.cs
+ * Purpose: The overarching manager for all things related to creating a order
+ */
 namespace PointOfSale
 {
 	/// <summary>

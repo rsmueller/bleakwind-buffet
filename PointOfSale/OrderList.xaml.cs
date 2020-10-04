@@ -12,6 +12,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * Author: Riley Mueller
+ * Last Modified: 10/1/2020
+ * Class Name: OrderList.cs
+ * Purpose: Holds IOrderItems commited to an order
+ * Responsible for buttons to cancel or finish the order
+ */
 namespace PointOfSale
 {
 	/// <summary>
@@ -28,7 +35,7 @@ namespace PointOfSale
 		public void AddItemToOrder(IOrderItem item)
 		{
 			list.Add(item);
-			TextBox box = new TextBox();
+			BleakwindTextBox box = new BleakwindTextBox();
 			box.Text = item.ToString();
 			stack.Children.Add(box);
 		}
@@ -36,7 +43,19 @@ namespace PointOfSale
 		public OrderList()
 		{
 			InitializeComponent();
+			btnCancelOrder.Click += OnCancelOrder;
+			btnFinishOrder.Click += OnFinishOrder;
 			list = new List<IOrderItem>(); 
+		}
+
+		void OnFinishOrder(object sender, RoutedEventArgs e)
+		{
+
+		}
+		void OnCancelOrder(object sender, RoutedEventArgs e)
+		{
+			stack.Children.Clear();
+			list.Clear();
 		}
 	}
 }

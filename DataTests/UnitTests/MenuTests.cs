@@ -241,7 +241,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
 		}
 
 		[Fact]
-		public void ShouldReturnCorrectIEnumerableOfFullMenu()
+		public void ShouldReturnCorrectIEnumerableInFullMenu()
 		{
 			Assert.Collection<IOrderItem>(Menu.FullMenu(),
 				item => Assert.IsType<BriarheartBurger>(item),
@@ -457,6 +457,69 @@ namespace BleakwindBuffet.DataTests.UnitTests
 					Assert.Equal(SodaFlavor.Watermelon, (item as SailorSoda).Flavor);
 				}
 			);
+		}
+
+		[Fact]
+		public void ShouldReturnCorrectIEnumerableInFullMenuTypes()
+        {
+			Assert.Collection<Type>(Menu.FullMenuTypes(),
+				item => Assert.Equal(typeof(BriarheartBurger), item),
+				item => Assert.Equal(typeof(DoubleDraugr), item),
+				item => Assert.Equal(typeof(ThalmorTriple), item),
+				item => Assert.Equal(typeof(GardenOrcOmelette), item),
+				item => Assert.Equal(typeof(SmokehouseSkeleton), item),
+				item => Assert.Equal(typeof(PhillyPoacher), item),
+				item => Assert.Equal(typeof(ThugsTBone), item),
+				item => Assert.Equal(typeof(DragonbornWaffleFries), item),
+				item => Assert.Equal(typeof(FriedMiraak), item),
+				item => Assert.Equal(typeof(MadOtarGrits), item),
+				item => Assert.Equal(typeof(VokunSalad), item),
+				item => Assert.Equal(typeof(AretinoAppleJuice), item),
+				item => Assert.Equal(typeof(CandlehearthCoffee), item),
+				item => Assert.Equal(typeof(MarkarthMilk), item),
+				item => Assert.Equal(typeof(SailorSoda), item),
+				item => Assert.Equal(typeof(WarriorWater), item)
+				); 
+        }
+
+		[Fact]
+		public void ShouldReturnCorrectIEnumerableInEntreeTypes()
+        {
+			Assert.Collection<Type>(Menu.EntreeTypes(),
+				item => Assert.Equal(typeof(BriarheartBurger), item),
+				item => Assert.Equal(typeof(DoubleDraugr), item),
+				item => Assert.Equal(typeof(ThalmorTriple), item),
+				item => Assert.Equal(typeof(GardenOrcOmelette), item),
+				item => Assert.Equal(typeof(SmokehouseSkeleton), item),
+				item => Assert.Equal(typeof(PhillyPoacher), item),
+				item => Assert.Equal(typeof(ThugsTBone), item)
+				);
+
+		}
+
+		[Fact]
+		public void ShouldReturnCorrectIEnumerableInSideTypes()
+		{
+			Assert.Collection<Type>(Menu.SideTypes(),
+				item => Assert.Equal(typeof(DragonbornWaffleFries), item),
+				item => Assert.Equal(typeof(FriedMiraak), item),
+				item => Assert.Equal(typeof(MadOtarGrits), item),
+				item => Assert.Equal(typeof(VokunSalad), item)
+				);
+
+		}
+
+		[Fact]
+		public void ShouldReturnCorrectIEnumerableInDrinkTypes()
+		{
+			Assert.Collection<Type>(Menu.DrinkTypes(),
+				item => Assert.Equal(typeof(AretinoAppleJuice), item),
+				item => Assert.Equal(typeof(CandlehearthCoffee), item),
+				item => Assert.Equal(typeof(MarkarthMilk), item),
+				item => Assert.Equal(typeof(SailorSoda), item),
+				item => Assert.Equal(typeof(WarriorWater), item)
+				);
+
 		}
 	}
 }

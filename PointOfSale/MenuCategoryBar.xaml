@@ -6,10 +6,23 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="640">
-    <StackPanel Orientation="Horizontal">
-        <Button x:Name="btnAllItems">All</Button>
-        <Button x:Name="btnEntrees">Entrees</Button>
-        <Button x:Name="btnSides">Sides</Button>
-        <Button x:Name="btnDrinks">Drinks</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="local:BleakwindButton">
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            </Style>
+        </Grid.Resources>
+        <local:BleakwindButton x:Name="btnAllItems" Grid.Column="0">All</local:BleakwindButton>
+        <local:BleakwindButton x:Name="btnEntrees" Grid.Column="1">Entrees</local:BleakwindButton>
+        <local:BleakwindButton x:Name="btnSides" Grid.Column="2">Sides</local:BleakwindButton>
+        <local:BleakwindButton x:Name="btnDrinks" Grid.Column="3">Drinks</local:BleakwindButton>
+    </Grid>
 </UserControl>

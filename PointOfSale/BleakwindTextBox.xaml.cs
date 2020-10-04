@@ -10,27 +10,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 /*
  * Author: Riley Mueller
  * Last Modified: 10/1/2020
- * Class Name: MenuCategoryBar.cs
- * Purpose: Houses buttons to swap between possible menus
+ * Class Name: BleakwindTextBox.cs
+ * Purpose: Extends TextBox to theme to Bleakwind theme
  */
 namespace PointOfSale
 {
 	/// <summary>
-	/// Interaction logic for MenuCategoryBar.xaml
+	/// Interaction logic for BleakwindTextBox.xaml
 	/// </summary>
-	public partial class MenuCategoryBar : UserControl
+	public partial class BleakwindTextBox : TextBox
 	{
-
-		public Button AllItemsMenuButton { get { return btnAllItems; } }
-		public Button EntreeMenuButton { get { return btnEntrees; } }
-		public Button SidesMenuButton { get { return btnSides; } }
-		public Button DrinksMenuButton { get { return btnDrinks; } }
-
-		public MenuCategoryBar()
+		public BleakwindTextBox()
 		{
 			InitializeComponent();
 		}

@@ -12,6 +12,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+ * Author: Riley Mueller
+ * Last Modified: 10/1/2020
+ * Class Name: Menu.cs
+ * Purpose: Manages communication between menu categories and the display area of the menu
+ */
 namespace PointOfSale
 {
 	/// <summary>

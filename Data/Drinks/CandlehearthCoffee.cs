@@ -37,9 +37,17 @@ namespace BleakwindBuffet.Data.Drinks
 		/// <summary>
 		/// The size of the Candlehearth Coffee
 		/// </summary>
-		public override Size Size { get => size; set => size = value; }
+		public override Size Size {
+			get => size;
+			set {
+				size = value;
+				OnPropertyChanged("Calories");
+				OnPropertyChanged("Price");
+				OnPropertyChanged("Size");
+			}
+		}
 
-        private List<string> specialInstructions = new List<string>();
+		private List<string> specialInstructions = new List<string>();
 		/// <summary>
 		/// A list of special instructions for preparing the Candlehearth Coffee
 		/// </summary>
@@ -62,6 +70,7 @@ namespace BleakwindBuffet.Data.Drinks
 				if (value == Ice) return;
 				if (value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
+				OnPropertyChanged("Ice");
 			}
 		}
 
@@ -76,13 +85,21 @@ namespace BleakwindBuffet.Data.Drinks
 				if (value == RoomForCream) return;
 				if (value) specialInstructions.Add(possibleInstructions[1]);
 				else specialInstructions.Remove(possibleInstructions[1]);
+				OnPropertyChanged("RoomForCream");
 			}
 		}
 
+		private bool decaf = false;
 		/// <summary>
 		/// If the Candlehearth Coffee is decaf
 		/// </summary>
-		public bool Decaf { get; set; }
+		public bool Decaf { 
+			get { return decaf; } 
+			set {
+				decaf = value;
+				OnPropertyChanged("Decaf");
+			}
+		}
 
 		/// <summary>
 		/// Returns a description of the Candlehearth Coffee

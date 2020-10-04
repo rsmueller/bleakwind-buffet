@@ -17,6 +17,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class AretinoAppleJuiceTests
     {
         [Fact]
+        public void ShouldHaveCorrectDisplayName()
+        {
+            var x = new AretinoAppleJuice();
+            Assert.Equal("Aretino Apple Juice", x.DisplayName);
+        }
+
+        [Fact]
         public void ShouldBeAssignableToIOrderItemInterface()
         {
             var x = new AretinoAppleJuice();
@@ -121,6 +128,45 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             var x = new AretinoAppleJuice();
             x.Size = size;
             Assert.Equal(name, x.ToString());
+        }
+
+        [Fact]
+        public void ShouldNotifySizePropertyChanged()
+        {
+            var x = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Size", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPricePropertyChanged()
+        {
+            var x = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Price", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesPropertyChanged()
+        {
+            var x = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Large; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Medium; });
+            Assert.PropertyChanged(x, "Calories", () => { x.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyIcePropertyChanged()
+        {
+            var x = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = true; });
+            Assert.PropertyChanged(x, "Ice", () => { x.Ice = false; });
         }
     }
 }
