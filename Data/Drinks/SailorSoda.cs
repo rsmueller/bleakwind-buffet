@@ -79,6 +79,7 @@ namespace BleakwindBuffet.Data.Drinks
 				if (!value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
 				OnPropertyChanged("Ice");
+				OnPropertyChanged("SpecialInstructions");
 			}
 		}
 		/// <summary>

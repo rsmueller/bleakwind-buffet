@@ -69,6 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
 				if (!value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
 				OnPropertyChanged("Ice");
+				OnPropertyChanged("SpecialInstructions");
 			}
 		}
 		/// <summary>
@@ -83,6 +84,7 @@ namespace BleakwindBuffet.Data.Drinks
 				if (value) specialInstructions.Add(possibleInstructions[1]);
 				else specialInstructions.Remove(possibleInstructions[1]);
 				OnPropertyChanged("Lemon");
+				OnPropertyChanged("SpeciaInstructions");
 			}
 		}
 		/// <summary>
