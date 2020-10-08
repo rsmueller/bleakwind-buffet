@@ -60,6 +60,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (!value) specialInstructions.Add(possibleInstructions[0]);
 				else specialInstructions.Remove(possibleInstructions[0]);
 				OnPropertyChanged("Sirloin");
+				OnPropertyChanged("SpecialInstructions");
 			}
 		}
 		/// <summary>
@@ -72,6 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (!value) specialInstructions.Add(possibleInstructions[1]);
 				else specialInstructions.Remove(possibleInstructions[1]);
 				OnPropertyChanged("Onion");
+				OnPropertyChanged("SpecialInstructions");
 			}
 		}
 		/// <summary>
@@ -84,6 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
 				if (!value) specialInstructions.Add(possibleInstructions[2]);
 				else specialInstructions.Remove(possibleInstructions[2]);
 				OnPropertyChanged("Roll");
+				OnPropertyChanged("SpecialInstructions");
 			}
 		}
 		/// <summary>
