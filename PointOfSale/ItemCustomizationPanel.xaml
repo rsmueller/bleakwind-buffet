@@ -24,7 +24,7 @@
         <Label Name="label" FontSize="28" Background="#424242" Foreground="White" Grid.ColumnSpan="2" Grid.Row="0"/>
         <UniformGrid Name="stack" Grid.ColumnSpan="2" Grid.Row="1" Background="#424242">
         </UniformGrid>
-        <local:BleakwindButton x:Name="btnClose" Grid.Row="2">Close without Saving</local:BleakwindButton>
+        <local:BleakwindButton x:Name="btnClose" Grid.Row="2">Close</local:BleakwindButton>
         <local:BleakwindButton x:Name="btnAddToOrder" Grid.Row="2" Grid.Column="1">Add to Order</local:BleakwindButton>
     </Grid>
 </UserControl>

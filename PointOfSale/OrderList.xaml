@@ -5,17 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="160" Background="#424242">
+             d:DesignHeight="450" d:DesignWidth="250" Background="#424242">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="12*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0">
+        <local:BleakwindTextBox x:Name="txtOrderNumber" Grid.Row="0" FontSize="14">Order #-1</local:BleakwindTextBox>
+        <ScrollViewer Grid.Row="1">
             <StackPanel Name="stack" Orientation="Vertical"/>
         </ScrollViewer>
-        <local:BleakwindButton x:Name="btnCancelOrder" Grid.Row="1" FontSize="20">Cancel Order</local:BleakwindButton>
-        <local:BleakwindButton x:Name="btnFinishOrder" Grid.Row="2" FontSize="20">Finish Order</local:BleakwindButton>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <local:BleakwindButton x:Name="btnFinishOrder" Grid.Column="0" FontSize="20">Finish Order</local:BleakwindButton>
+            <local:BleakwindButton x:Name="btnCancelOrder" Grid.Column="1" FontSize="20">Cancel Order</local:BleakwindButton>
+        </Grid>
+        
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <local:BleakwindTextBox Grid.Row="0" Grid.Column="0" TextAlignment="Left">Subtotal:</local:BleakwindTextBox>
+            <local:BleakwindTextBox Grid.Row="1" Grid.Column="0" TextAlignment="Left">Tax:</local:BleakwindTextBox>
+            <local:BleakwindTextBox Grid.Row="2" Grid.Column="0" TextAlignment="Left">Total:</local:BleakwindTextBox>
+
+            <local:BleakwindTextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Subtotal, Mode=OneWay,StringFormat={}{0:C}}" TextAlignment="Right"/>
+            <local:BleakwindTextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Tax, Mode=OneWay,StringFormat={}{0:C}}" TextAlignment="Right"/>
+            <local:BleakwindTextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Total, Mode=OneWay,StringFormat={}{0:C}}" TextAlignment="Right"/>
+        </Grid>
     </Grid>
 </UserControl>

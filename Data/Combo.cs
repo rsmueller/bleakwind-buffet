@@ -74,7 +74,9 @@ namespace BleakwindBuffet.Data
             } 
         }
 
-
+        /// <summary>
+        /// Display Name for a Combo Item
+        /// </summary>
         public string DisplayName => "Combo";
 
         /// <summary>

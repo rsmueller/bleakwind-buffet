@@ -26,36 +26,72 @@ namespace PointOfSale
 	/// </summary>
 	public partial class OrderList : UserControl
 	{
-		private List<IOrderItem> list;
+
+		private Order order;
+		private List<Order> previousOrders;
+
+		private Dictionary<Button, OrderItem> buttonItemPairs;
+
+		/// <summary>
+		/// Returns if the order already contains the item
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public bool ContainsItemInOrder(IOrderItem item)
+		{
+			return order.Contains(item);
+		}
 
 		/// <summary>
 		/// Very temporary implementation of order
 		/// </summary>
 		/// <param name="item"></param>
-		public void AddItemToOrder(IOrderItem item)
+		public void AddItemToOrder(IOrderItem item, ItemCustomizationPanel itemCustomizationPanel)
 		{
-			list.Add(item);
-			BleakwindTextBox box = new BleakwindTextBox();
-			box.Text = item.ToString();
-			stack.Children.Add(box);
+			order.Add(item);
+			OrderItem guiItem = new OrderItem(itemCustomizationPanel);
+			buttonItemPairs.Add(guiItem.btnEdit, guiItem);
+			buttonItemPairs.Add(guiItem.btnRemove, guiItem);
+			guiItem.btnRemove.Click += OnBtnRemoveItemClicked;
+			guiItem.btnEdit.Click += OnBtnEditItemClicked;
+			stack.Children.Add(guiItem);
 		}
 
 		public OrderList()
 		{
-			InitializeComponent();
+			buttonItemPairs = new Dictionary<Button, OrderItem>();
+			InitializeComponent(); 
 			btnCancelOrder.Click += OnCancelOrder;
 			btnFinishOrder.Click += OnFinishOrder;
-			list = new List<IOrderItem>(); 
+			order = new Order();
+			previousOrders = new List<Order>();
+			DataContext = order;
+			txtOrderNumber.Text = $"Order #{order.Number}";
 		}
 
-		/// <summary>
-		/// Finish the order
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void OnFinishOrder(object sender, RoutedEventArgs e)
+		void OnBtnEditItemClicked(object sender, RoutedEventArgs e)
 		{
-			//TODO: To be implemented
+			if (OrderManager.singleton.ShowingMenu)
+			{
+				OrderItem orderItem = buttonItemPairs[sender as Button];
+				OrderManager.singleton.CustomizeItem(orderItem.DataContext as IOrderItem, orderItem.CustomizationPanel);
+			}
+		}
+
+		void OnBtnRemoveItemClicked(object sender, RoutedEventArgs e)
+		{
+			OrderItem orderItem = buttonItemPairs[sender as Button];
+			RemoveOrderItem(orderItem);
+		}
+
+		private void RemoveOrderItem(OrderItem orderItem)
+		{
+			order.Remove(orderItem.DataContext as IOrderItem);
+			stack.Children.Remove(orderItem);
+			orderItem.btnRemove.Click -= OnBtnRemoveItemClicked;
+			orderItem.btnEdit.Click -= OnBtnEditItemClicked;
+			buttonItemPairs.Remove(orderItem.BtnEdit);
+			buttonItemPairs.Remove(orderItem.BtnRemove);
 		}
 
 		/// <summary>
@@ -65,8 +101,38 @@ namespace PointOfSale
 		/// <param name="e"></param>
 		void OnCancelOrder(object sender, RoutedEventArgs e)
 		{
-			stack.Children.Clear();
-			list.Clear();
+			Control[] arr = new Control[stack.Children.Count];
+			stack.Children.CopyTo(arr, 0);
+			foreach (Control item in arr)
+			{
+				if (item is OrderItem orderItem)
+				{
+					RemoveOrderItem(orderItem);
+				}
+			}
+			order.Clear();
+		}
+
+		void OnFinishOrder(object sender, RoutedEventArgs e)
+		{
+			if (order.Count == 0)
+			{
+				return;
+			}
+			previousOrders.Add(order);
+
+			Control[] arr = new Control[stack.Children.Count];
+			stack.Children.CopyTo(arr, 0);
+			foreach (Control item in arr)
+			{
+				if (item is OrderItem orderItem)
+				{
+					RemoveOrderItem(orderItem);
+				}
+			}
+
+			order = new Order();
+			txtOrderNumber.Text = $"Order #{order.Number}";
 		}
 	}
 }

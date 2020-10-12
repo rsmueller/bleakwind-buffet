@@ -7,5 +7,5 @@
              mc:Ignorable="d" 
              d:DesignHeight="130" d:DesignWidth="160"
          Background="#212121" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-         FontSize="20" TextWrapping="Wrap">
+         TextWrapping="Wrap">
 </TextBox>

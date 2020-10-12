@@ -30,29 +30,48 @@ namespace PointOfSale
 		/// </summary>
 		public static OrderManager singleton;
 
+		/// <summary>
+		/// Is the menu currently visible?
+		/// </summary>
+		public bool ShowingMenu { get; private set; }
+
 		private ItemCustomizationPanel currentCustomizationPanel;
 
 		private IOrderItem currentOrderItem;
 
 		/// <summary>
-		/// Switch from menu to customization panel
+		/// Switch from menu to customization panel for an item
 		/// </summary>
 		public void CustomizeItem(IOrderItem item)
 		{
-			menu.IsEnabled = false;
-			menu.Visibility = Visibility.Hidden;
-
 			ItemCustomizationPanel customizationPanel = new ItemCustomizationPanel();
-			grid.Children.Add(customizationPanel);
-			Grid.SetColumn(customizationPanel, 0);
 			customizationPanel.BtnAddToOrder.Click += OnBtnAddToOrderClicked;
 			customizationPanel.BtnClose.Click += OnBtnCloseClicked;
-
 			customizationPanel.LoadOptionsForItem(item);
 
-			currentCustomizationPanel = customizationPanel;
-			currentOrderItem = item;
+			CustomizeItem(item, customizationPanel);
 		}
+
+		/// <summary>
+		/// Switch from menu to customization panel for an item
+		/// that already has a customization panel generated for it.
+		/// </summary>
+		/// <param name="item"></param>
+		/// <param name="customizationPanel"></param>
+		public void CustomizeItem(IOrderItem item, ItemCustomizationPanel customizationPanel)
+		{
+
+			menu.IsEnabled = false;
+			ShowingMenu = false;
+			menu.Visibility = Visibility.Hidden;
+
+			currentOrderItem = item;
+
+			grid.Children.Add(customizationPanel);
+			Grid.SetColumn(customizationPanel, 0);
+			currentCustomizationPanel = customizationPanel;
+		}
+
 
 		public OrderManager()
 		{
@@ -65,6 +84,8 @@ namespace PointOfSale
 		/// </summary>
 		private void GoBackToMenu()
 		{
+			ShowingMenu = true;
+
 			grid.Children.Remove(currentCustomizationPanel);
 			menu.IsEnabled = true;
 			menu.Visibility = Visibility.Visible;
@@ -90,8 +111,12 @@ namespace PointOfSale
 		/// <param name="e"></param>
 		private void OnBtnAddToOrderClicked(object sender, RoutedEventArgs e)
 		{
-			orderList.AddItemToOrder(currentOrderItem);
+			if ( ! orderList.ContainsItemInOrder(currentOrderItem))
+			{
+				orderList.AddItemToOrder(currentOrderItem, currentCustomizationPanel);
+			}
 			GoBackToMenu();
 		}
+
 	}
 }
