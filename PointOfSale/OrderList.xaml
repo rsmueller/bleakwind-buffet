@@ -25,6 +25,7 @@
             </Grid.ColumnDefinitions>
             <local:BleakwindButton x:Name="btnFinishOrder" Grid.Column="0" FontSize="20">Finish Order</local:BleakwindButton>
             <local:BleakwindButton x:Name="btnCancelOrder" Grid.Column="1" FontSize="20">Cancel Order</local:BleakwindButton>
+            <local:BleakwindButton x:Name="btnReturnToOrder" Visibility="Hidden" IsEnabled="False" Grid.ColumnSpan="2" FontSize="20">Return to Order</local:BleakwindButton>
         </Grid>
         
         <Grid Grid.Row="3">

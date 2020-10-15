@@ -19,7 +19,7 @@ namespace BleakwindBuffet.Data
 
         private Entree entree;
         /// <summary>
-        /// The drink property of the combo
+        /// The entree property of the combo
         /// </summary>
         public Entree Entree { get { return entree; } 
             set {
@@ -38,7 +38,7 @@ namespace BleakwindBuffet.Data
 
         private Side side;
         /// <summary>
-        /// The drink property of the combo
+        /// The side property of the combo
         /// </summary>
         public Side Side { get { return side; } 
             set {
@@ -98,13 +98,13 @@ namespace BleakwindBuffet.Data
             get
             {
                 List<string> temp = new List<string>();
-                temp.Add(Entree.DisplayName);
+                temp.Add(Entree.ToString());
                 temp.AddRange(Entree.SpecialInstructions);
 
-                temp.Add(Side.DisplayName);
+                temp.Add(Side.ToString());
                 temp.AddRange(Side.SpecialInstructions);
                 
-                temp.Add(Drink.DisplayName);
+                temp.Add(Drink.ToString());
                 temp.AddRange(Drink.SpecialInstructions);
 
                 return temp;
@@ -128,6 +128,8 @@ namespace BleakwindBuffet.Data
                 case "Calories":
                     OnPropertyChanged("Calories");
                     break;
+                case "Size":
+                case "Flavor":
                 case "SpecialInstructions":
                     OnPropertyChanged("SpecialInstructions");
                     break;

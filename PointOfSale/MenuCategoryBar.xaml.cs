@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 /*
  * Author: Riley Mueller
@@ -44,6 +45,18 @@ namespace PointOfSale
 		public MenuCategoryBar()
 		{
 			InitializeComponent();
+		}
+
+		/// <summary>
+		/// Tells the OrderManager to begin customization of this item
+		/// Technically a copy of this item so that multiple in order are allowed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnBtnComboClicked(object sender, RoutedEventArgs e)
+		{
+			IOrderItem item = new Combo();
+			OrderManager.singleton.CustomizeItem(item);
 		}
 	}
 }

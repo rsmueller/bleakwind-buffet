@@ -25,6 +25,10 @@ namespace PointOfSale
 	/// </summary>
 	public partial class OrderManager : UserControl
 	{
+		private enum Screen { Menu, Customization, Payment}
+		private Screen currentScreen = Screen.Menu;
+		private Screen previousScreen = Screen.Menu;
+
 		/// <summary>
 		/// Reference to the runtime OrderManager object
 		/// </summary>
@@ -33,7 +37,7 @@ namespace PointOfSale
 		/// <summary>
 		/// Is the menu currently visible?
 		/// </summary>
-		public bool ShowingMenu { get; private set; }
+		public bool ShowingMenu { get { return currentScreen == Screen.Menu; } }
 
 		private ItemCustomizationPanel currentCustomizationPanel;
 
@@ -60,18 +64,40 @@ namespace PointOfSale
 		/// <param name="customizationPanel"></param>
 		public void CustomizeItem(IOrderItem item, ItemCustomizationPanel customizationPanel)
 		{
-
-			menu.IsEnabled = false;
-			ShowingMenu = false;
-			menu.Visibility = Visibility.Hidden;
-
 			currentOrderItem = item;
 
-			grid.Children.Add(customizationPanel);
-			Grid.SetColumn(customizationPanel, 0);
 			currentCustomizationPanel = customizationPanel;
+
+			SwitchToScreen(Screen.Customization);
 		}
 
+		private void SwitchToScreen(Screen screen)
+		{
+			if (currentScreen == screen)
+			{
+				return;
+			}
+
+			previousScreen = currentScreen;
+			currentScreen = screen;
+
+			if (screen == Screen.Menu)
+			{
+				ShowMenu();
+				HideCustomization();
+				HidePayment();
+			}else if (screen == Screen.Customization)
+			{
+				HideMenu();
+				ShowCustomization();
+				HidePayment();
+			}else if (screen == Screen.Payment)
+			{
+				HideMenu();
+				HideCustomization();
+				ShowPayment();
+			}
+		}
 
 		public OrderManager()
 		{
@@ -79,33 +105,61 @@ namespace PointOfSale
 			InitializeComponent();
 		}
 
-		/// <summary>
-		/// Close the customization panel and reopen the menu
-		/// </summary>
-		private void GoBackToMenu()
+		private void ShowMenu()
 		{
-			ShowingMenu = true;
-
-			grid.Children.Remove(currentCustomizationPanel);
 			menu.IsEnabled = true;
 			menu.Visibility = Visibility.Visible;
+		}
 
-			currentCustomizationPanel = null;
-			currentOrderItem = null;
+		private void HideMenu()
+		{
+			menu.IsEnabled = false;
+			menu.Visibility = Visibility.Hidden;
+		}
+
+		private void ShowCustomization()
+		{
+			if (currentCustomizationPanel != null)
+			{
+				grid.Children.Add(currentCustomizationPanel);
+				Grid.SetColumn(currentCustomizationPanel, 0);
+			}
+		}
+
+		private void HideCustomization()
+		{
+			if (currentCustomizationPanel != null)
+			{
+				grid.Children.Remove(currentCustomizationPanel);
+				currentCustomizationPanel = null;
+				currentOrderItem = null;
+			}
+		}
+
+		private void ShowPayment()
+		{
+			payment.IsEnabled = true;
+			payment.Visibility = Visibility.Visible;
+		}
+
+		private void HidePayment()
+		{
+			payment.IsEnabled = false;
+			payment.Visibility = Visibility.Hidden;
 		}
 
 		/// <summary>
-		/// Just go back to the menu
+		/// Return to previous screen
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void OnBtnCloseClicked(object sender, RoutedEventArgs e)
 		{
-			GoBackToMenu();
+			SwitchToScreen(previousScreen);
 		}
 
 		/// <summary>
-		/// Save item to order then go back to menu
+		/// Save item to order then go back to previous screen
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -115,7 +169,21 @@ namespace PointOfSale
 			{
 				orderList.AddItemToOrder(currentOrderItem, currentCustomizationPanel);
 			}
-			GoBackToMenu();
+			SwitchToScreen(previousScreen);
+		}
+
+		private void OnBtnFinishOrderClicked(object sender, RoutedEventArgs e)
+		{
+			if (e.OriginalSource is Button button)
+			{
+				if (button.Name == "btnFinishOrder")
+				{
+					SwitchToScreen(Screen.Payment);
+				}else if (button.Name == "btnReturnToOrder")
+				{
+					SwitchToScreen(Screen.Menu);
+				}
+			}
 		}
 
 	}

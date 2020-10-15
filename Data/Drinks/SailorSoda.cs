@@ -46,7 +46,7 @@ namespace BleakwindBuffet.Data.Drinks
 			}
 		}
 
-		private SodaFlavor flavor = SodaFlavor.Cherry;
+		private SodaFlavor flavor = SodaFlavor.Blackberry;
 		/// <summary>
 		/// The flavor of the Sailor Soda
 		/// </summary>

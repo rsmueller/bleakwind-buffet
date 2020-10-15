@@ -119,7 +119,7 @@ namespace PointOfSale
 			{
 				return;
 			}
-			previousOrders.Add(order);
+			/*previousOrders.Add(order);
 
 			Control[] arr = new Control[stack.Children.Count];
 			stack.Children.CopyTo(arr, 0);
@@ -132,7 +132,26 @@ namespace PointOfSale
 			}
 
 			order = new Order();
-			txtOrderNumber.Text = $"Order #{order.Number}";
+			txtOrderNumber.Text = $"Order #{order.Number}";*/
+
+			btnReturnToOrder.Visibility = Visibility.Visible;
+			btnReturnToOrder.IsEnabled = true;
+
+			btnCancelOrder.Visibility = Visibility.Hidden;
+			btnCancelOrder.IsEnabled = false;
+			btnFinishOrder.Visibility = Visibility.Hidden;
+			btnFinishOrder.IsEnabled = false;
+		}
+
+		void OnReturnToOrder(object sender, RoutedEventArgs e)
+		{
+			btnReturnToOrder.Visibility = Visibility.Hidden;
+			btnReturnToOrder.IsEnabled = false;
+
+			btnCancelOrder.Visibility = Visibility.Visible;
+			btnCancelOrder.IsEnabled = true;
+			btnFinishOrder.Visibility = Visibility.Visible;
+			btnFinishOrder.IsEnabled = true;
 		}
 	}
 }

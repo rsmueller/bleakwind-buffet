@@ -43,6 +43,7 @@ namespace PointOfSale
 			this.DataContext = panel.DataContext;
 			InitializeComponent();
 			SetExtraInfo((DataContext as IOrderItem).SpecialInstructions);
+			txtName.Text = DataContext.ToString();
 			if (DataContext is INotifyPropertyChanged propertyChanged)
 			{
 				propertyChanged.PropertyChanged += OnPropertyChanged;
@@ -59,6 +60,12 @@ namespace PointOfSale
 			if (e.PropertyName == "Size")
 			{
 				txtName.Text = item.ToString();
+				SetExtraInfo(item.SpecialInstructions);
+			}
+			else if (e.PropertyName == "Flavor")
+			{
+				txtName.Text = item.ToString();
+				SetExtraInfo(item.SpecialInstructions);
 			}
 		}
 

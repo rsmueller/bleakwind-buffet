@@ -12,6 +12,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Resources>
             <Style TargetType="local:BleakwindButton">
@@ -24,5 +25,6 @@
         <local:BleakwindButton x:Name="btnEntrees" Grid.Column="1">Entrees</local:BleakwindButton>
         <local:BleakwindButton x:Name="btnSides" Grid.Column="2">Sides</local:BleakwindButton>
         <local:BleakwindButton x:Name="btnDrinks" Grid.Column="3">Drinks</local:BleakwindButton>
+        <local:BleakwindButton x:Name="btnCombo" Click="OnBtnComboClicked" Grid.Column="4">Combo</local:BleakwindButton>
     </Grid>
 </UserControl>

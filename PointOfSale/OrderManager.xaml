@@ -12,6 +12,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <local:Menu x:Name="menu" Grid.Column="0"/>
-        <local:OrderList x:Name="orderList" Grid.Column="1"/>
+        <local:Payment x:Name="payment" Grid.Column="0" IsEnabled="False" Visibility="Hidden"/>
+        <local:OrderList x:Name="orderList" Grid.Column="1" ButtonBase.Click="OnBtnFinishOrderClicked"/>
     </Grid>
 </UserControl>

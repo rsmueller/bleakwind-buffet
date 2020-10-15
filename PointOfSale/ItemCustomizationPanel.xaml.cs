@@ -1,12 +1,16 @@
 ﻿using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -29,9 +33,7 @@ namespace PointOfSale
 	/// </summary>
 	public partial class ItemCustomizationPanel : UserControl
 	{
-
-		private static readonly string[] POSSIBLE_OPTIONS = { "Bun", "Ketchup", "Mustard", "Pickle", "Cheese", "Tomato", "Lettuce", "Mayo", "Bacon", "Egg", "Ice", "Decaf", "RoomForCream", "Lemon","Broccoli", "Mushrooms","Tomato","Cheddar","Sirloin","Onion","Roll","SausageLink","HashBrowns", "Flavor", "Size" };
-
+		
 		/// <summary>
 		/// Button that closes the item customization panel without writing to order
 		/// </summary>
@@ -57,49 +59,113 @@ namespace PointOfSale
 			label.Content = $"Customization Window for {item.DisplayName}";
 
 			this.DataContext = item;
-
-			foreach (var property in item.GetType().GetProperties())
+			// if this item is a combo item
+			// load choice of entree, side, and drink
+			if (item is Combo combo)
 			{
-				if (property == null)
-					continue;
-
-				string option = property.Name;
-
-				if (property.PropertyType == typeof(Boolean))
-				{
-					BleakwindCheckBox x = new BleakwindCheckBox();
-					CheckBox box = x.Box;
-					box.Tag = property;
-					box.Checked += OnCheckBoxChecked;
-					box.Unchecked += OnCheckBoxUnchecked;
-					x.TextBlock.Text = option;
-
-					box.IsChecked = (bool)property.GetValue(item);
-
-					stack.Children.Add(x);
-				}
-				else if (property.PropertyType == typeof(Size))
-				{
-					ComboBox box = new ComboBox();
-					box.Tag = property;
-					box.ItemsSource = Sizes.GetSizes();
-					box.SelectedIndex = 0;
-					box.SelectionChanged += OnComboBoxSelectionChanged;
-					
-					stack.Children.Add(box);
-				}
-				else if (property.PropertyType == typeof(SodaFlavor))
-				{
-					ComboBox box = new ComboBox();
-					box.Tag = property;
-					box.ItemsSource = SodaFlavors.GetFlavors();
-					box.SelectedIndex = 0;
-					box.SelectionChanged += OnComboBoxSelectionChanged;
-
-					stack.Children.Add(box);
-				}
-
+				AddComboItemPanel(BleakwindBuffet.Data.Menu.EntreeTypes());
+				AddComboItemPanel(BleakwindBuffet.Data.Menu.SideTypes());
+				AddComboItemPanel(BleakwindBuffet.Data.Menu.DrinkTypes());
 			}
+			else
+			{
+				foreach (var property in item.GetType().GetProperties())
+				{
+					if (property == null)
+						continue;
+
+					string option = property.Name;
+
+					if (property.PropertyType == typeof(Boolean))
+					{
+						AddCheckBox(property, option, (bool)property.GetValue(item));
+					}
+					else if (property.PropertyType == typeof(Size))
+					{
+						AddComboBox(property, Sizes.GetSizes());
+					}
+					else if (property.PropertyType == typeof(SodaFlavor))
+					{
+						AddComboBox(property, SodaFlavors.GetFlavors());
+					}
+
+				}
+			}
+
+		}
+
+		private ComboBox AddComboItemPanel(IEnumerable itemsSource)
+		{
+			ComboBox box = new ComboBox();
+			box.ItemsSource = itemsSource;
+			box.DisplayMemberPath = "Name";
+			var x = new ItemCustomizationPanel();
+			x.grid.RowDefinitions.RemoveAt(0);
+			x.grid.RowDefinitions.RemoveAt(1);
+			x.btnAddToOrder.IsEnabled = false;
+			x.btnClose.IsEnabled = false;
+			x.label.IsEnabled = false;
+			x.btnAddToOrder.Visibility = Visibility.Hidden;
+			x.btnClose.Visibility = Visibility.Hidden;
+			x.label.Visibility = Visibility.Hidden;
+			box.Tag = x;
+			box.SelectionChanged += OnComboItemChanged;
+			stack.Children.Add(box);
+			stack.Children.Add(box.Tag as UIElement);
+
+			box.SelectedIndex = 0;
+			return box;
+		}
+
+
+		private void OnComboItemChanged(object sender, RoutedEventArgs e)
+		{
+			ComboBox box = sender as ComboBox;
+			ItemCustomizationPanel panel = box.Tag as ItemCustomizationPanel;
+
+			panel.stack.Children.Clear();
+
+			IOrderItem newItem = (IOrderItem)Activator.CreateInstance(box.SelectedItem as Type);
+			Combo combo = DataContext as Combo;
+			if (newItem is Entree entree)
+			{
+				combo.Entree = entree;
+			}else if (newItem is Side side)
+			{
+				combo.Side = side;
+			}else if (newItem is Drink drink)
+			{
+				combo.Drink = drink;
+			}
+			panel.LoadOptionsForItem(newItem);
+		}
+
+		private BleakwindCheckBox AddCheckBox(PropertyInfo propertyInfo, string label, bool defaultValue)
+		{
+			BleakwindCheckBox x = new BleakwindCheckBox();
+			CheckBox box = x.Box;
+			box.Tag = propertyInfo;
+			box.Checked += OnCheckBoxChecked;
+			box.Unchecked += OnCheckBoxUnchecked;
+			x.TextBlock.Text = label;
+
+			box.IsChecked = defaultValue;
+
+			stack.Children.Add(x);
+			return x;
+		}
+
+		private ComboBox AddComboBox(PropertyInfo propertyInfo, IEnumerable itemsSource)
+		{
+
+			ComboBox box = new ComboBox();
+			box.Tag = propertyInfo;
+			box.ItemsSource = itemsSource;
+			box.SelectedIndex = 0;
+			box.SelectionChanged += OnComboBoxSelectionChanged;
+
+			stack.Children.Add(box);
+			return box;
 		}
 
 		/// <summary>
