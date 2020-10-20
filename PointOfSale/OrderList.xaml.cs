@@ -27,10 +27,13 @@ namespace PointOfSale
 	public partial class OrderList : UserControl
 	{
 
-		private Order order;
-		private List<Order> previousOrders;
+		public Order CurrentOrder { get { return orders[orders.Count - 1]; } }
+		private List<Order> orders;
 
 		private Dictionary<Button, OrderItem> buttonItemPairs;
+
+		public Button BtnFinishOrder { get => btnFinishOrder; }
+		public Button BtnReturnToOrder { get => btnReturnToOrder; }
 
 		/// <summary>
 		/// Returns if the order already contains the item
@@ -39,7 +42,7 @@ namespace PointOfSale
 		/// <returns></returns>
 		public bool ContainsItemInOrder(IOrderItem item)
 		{
-			return order.Contains(item);
+			return CurrentOrder.Contains(item);
 		}
 
 		/// <summary>
@@ -48,7 +51,7 @@ namespace PointOfSale
 		/// <param name="item"></param>
 		public void AddItemToOrder(IOrderItem item, ItemCustomizationPanel itemCustomizationPanel)
 		{
-			order.Add(item);
+			CurrentOrder.Add(item);
 			OrderItem guiItem = new OrderItem(itemCustomizationPanel);
 			buttonItemPairs.Add(guiItem.btnEdit, guiItem);
 			buttonItemPairs.Add(guiItem.btnRemove, guiItem);
@@ -63,10 +66,14 @@ namespace PointOfSale
 			InitializeComponent(); 
 			btnCancelOrder.Click += OnCancelOrder;
 			btnFinishOrder.Click += OnFinishOrder;
-			order = new Order();
-			previousOrders = new List<Order>();
-			DataContext = order;
-			txtOrderNumber.Text = $"Order #{order.Number}";
+			btnReturnToOrder.Click += OnReturnToOrder;
+
+			btnReturnToOrder.Click += OrderManager.singleton.OnBtnReturnToOrderClicked;
+			btnFinishOrder.Click += OrderManager.singleton.OnBtnFinishOrderClicked;
+
+
+			orders = new List<Order>();
+			CreateNewOrder();
 		}
 
 		void OnBtnEditItemClicked(object sender, RoutedEventArgs e)
@@ -86,7 +93,7 @@ namespace PointOfSale
 
 		private void RemoveOrderItem(OrderItem orderItem)
 		{
-			order.Remove(orderItem.DataContext as IOrderItem);
+			CurrentOrder.Remove(orderItem.DataContext as IOrderItem);
 			stack.Children.Remove(orderItem);
 			orderItem.btnRemove.Click -= OnBtnRemoveItemClicked;
 			orderItem.btnEdit.Click -= OnBtnEditItemClicked;
@@ -110,15 +117,31 @@ namespace PointOfSale
 					RemoveOrderItem(orderItem);
 				}
 			}
-			order.Clear();
+			CurrentOrder.Clear();
+		}
+
+		void CreateNewOrder()
+		{
+			orders.Add(new Order());
+			DataContext = CurrentOrder;
+			txtOrderNumber.Text = $"Order #{CurrentOrder.Number}";
 		}
 
 		void OnFinishOrder(object sender, RoutedEventArgs e)
 		{
-			if (order.Count == 0)
+			if (CurrentOrder.Count == 0)
 			{
 				return;
 			}
+
+			foreach (Button button in buttonItemPairs.Keys)
+			{
+				button.IsEnabled = false;
+				button.Visibility = Visibility.Collapsed;
+			}
+
+
+
 			/*previousOrders.Add(order);
 
 			Control[] arr = new Control[stack.Children.Count];
@@ -145,6 +168,11 @@ namespace PointOfSale
 
 		void OnReturnToOrder(object sender, RoutedEventArgs e)
 		{
+			foreach (Button button in buttonItemPairs.Keys)
+			{
+				button.IsEnabled = true;
+				button.Visibility = Visibility.Visible;
+			}
 			btnReturnToOrder.Visibility = Visibility.Hidden;
 			btnReturnToOrder.IsEnabled = false;
 

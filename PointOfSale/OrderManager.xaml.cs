@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
+using System.Printing;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -140,6 +141,8 @@ namespace PointOfSale
 		{
 			payment.IsEnabled = true;
 			payment.Visibility = Visibility.Visible;
+			payment.DataContext = orderList.CurrentOrder;
+			payment.UpdateTotalSale();
 		}
 
 		private void HidePayment()
@@ -172,14 +175,22 @@ namespace PointOfSale
 			SwitchToScreen(previousScreen);
 		}
 
-		private void OnBtnFinishOrderClicked(object sender, RoutedEventArgs e)
+		public void OnBtnFinishOrderClicked(object sender, RoutedEventArgs e)
 		{
 			if (e.OriginalSource is Button button)
 			{
 				if (button.Name == "btnFinishOrder")
 				{
 					SwitchToScreen(Screen.Payment);
-				}else if (button.Name == "btnReturnToOrder")
+				}
+			}
+		}
+
+		public void OnBtnReturnToOrderClicked(object sender, RoutedEventArgs e)
+		{
+			if (e.OriginalSource is Button button)
+			{
+				if (button.Name == "btnReturnToOrder")
 				{
 					SwitchToScreen(Screen.Menu);
 				}

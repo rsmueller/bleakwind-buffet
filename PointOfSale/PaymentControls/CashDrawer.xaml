@@ -1,0 +1,68 @@
+﻿<UserControl xmlns:PointOfSale="clr-namespace:PointOfSale"  x:Class="PointOfSale.PaymentControls.CashDrawer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.PaymentControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="510" Background="#454135">
+
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" FontSize="16" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" VerticalAlignment="Center">
+                From Customer
+            </TextBlock>
+            <TextBlock Grid.Column="3" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" Foreground="White">
+                Give As Change
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" FontSize="16" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" VerticalAlignment="Center">
+                From Customer
+            </TextBlock>
+            <TextBlock Grid.Column="3" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" Foreground="White">
+                Give As Change
+            </TextBlock>
+        </Grid>
+        <local:CurrencyControl Grid.Row="1" Grid.Column="0" DenominationLabel="$100" Given="{Binding GivenHundreds}" Change="{Binding ReturnHundreds}"/>
+        <local:CurrencyControl Grid.Row="2" Grid.Column="0" DenominationLabel="$50"/>
+        <local:CurrencyControl Grid.Row="3" Grid.Column="0" DenominationLabel="$20"/>
+        <local:CurrencyControl Grid.Row="4" Grid.Column="0" DenominationLabel="$10"/>
+        <local:CurrencyControl Grid.Row="5" Grid.Column="0" DenominationLabel="$5"/>
+        <local:CurrencyControl Grid.Row="6" Grid.Column="0" DenominationLabel="$2"/>
+        <local:CurrencyControl Grid.Row="7" Grid.Column="0" DenominationLabel="$1"/>
+        <!-- Right Side-->
+        <local:CurrencyControl Grid.Row="1" Grid.Column="1" DenominationLabel="$1 Coin"/>
+        <local:CurrencyControl Grid.Row="2" Grid.Column="2" DenominationLabel="50c"/>
+        <local:CurrencyControl Grid.Row="3" Grid.Column="3" DenominationLabel="25c"/>
+        <local:CurrencyControl Grid.Row="4" Grid.Column="4" DenominationLabel="10c"/>
+        <local:CurrencyControl Grid.Row="5" Grid.Column="5" DenominationLabel="5c" Given="{Binding Path=GivenNickels}" Change="{Binding Path=ReturnNickels}"/>
+        <local:CurrencyControl Grid.Row="6" Grid.Column="6" DenominationLabel="1c" Given="{Binding Path=GivenPennies}" Change="{Binding Path=ReturnPennies}"/>
+        <local:CashTotals x:Name="cashTotals" Grid.Row="7" Grid.Column="1"/>
+                          
+    </Grid>
+</UserControl>

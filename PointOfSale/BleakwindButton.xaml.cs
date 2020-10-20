@@ -19,6 +19,7 @@ using System.Windows.Shapes;
  */
 namespace PointOfSale
 {
+
 	/// <summary>
 	/// Interaction logic for BleakwindButton.xaml
 	/// </summary>
@@ -27,6 +28,22 @@ namespace PointOfSale
 		public BleakwindButton()
 		{
 			InitializeComponent();
+			IsEnabledChanged += OnIsEnabledChanged;
+		}
+
+		private static SolidColorBrush WhiteBrush = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+		private static SolidColorBrush GrayBrush = new SolidColorBrush(Color.FromRgb(135, 135, 135));
+
+		private void OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+		{
+			if (IsEnabled)
+			{
+				this.Foreground = WhiteBrush;
+			}
+			else
+			{
+				this.Foreground = GrayBrush;
+			}
 		}
 	}
 }

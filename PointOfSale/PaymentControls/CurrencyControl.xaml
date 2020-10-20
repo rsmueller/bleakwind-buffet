@@ -1,0 +1,28 @@
+﻿<UserControl xmlns:PointOfSale="clr-namespace:PointOfSale"  x:Class="PointOfSale.PaymentControls.CurrencyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.PaymentControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="220" Background="LightGray">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <PointOfSale:BleakwindButton x:Name="btnAdd" Grid.Column="1" Margin="0,5,0,5">
+            <TextBlock Margin="0,-10,0,0">+</TextBlock>
+        </PointOfSale:BleakwindButton>
+        <PointOfSale:BleakwindButton x:Name="btnSub" Grid.Column="3" Margin="0,5,0,5">
+            <TextBlock Margin="0,-10,0,0">-
+            </TextBlock>
+        </PointOfSale:BleakwindButton>
+        <Label x:Name="lblDenomination" VerticalAlignment="Center" Margin="3,0,3,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">$</Label>
+        <Label x:Name="lblGiven" Grid.Column="2" VerticalAlignment="Center" Margin="3,0,3,0" HorizontalAlignment="Center" FontSize="18">0</Label>
+        <Label x:Name="lblChange" Grid.Column="4" VerticalAlignment="Center" Margin="3,0,3,0" HorizontalAlignment="Center" FontSize="18">0</Label>
+    </Grid>
+</UserControl>

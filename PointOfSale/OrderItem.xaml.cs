@@ -60,12 +60,10 @@ namespace PointOfSale
 			if (e.PropertyName == "Size")
 			{
 				txtName.Text = item.ToString();
-				SetExtraInfo(item.SpecialInstructions);
 			}
 			else if (e.PropertyName == "Flavor")
 			{
 				txtName.Text = item.ToString();
-				SetExtraInfo(item.SpecialInstructions);
 			}
 		}
 
