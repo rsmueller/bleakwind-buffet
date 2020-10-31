@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:PointOfSale.PaymentControls"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="510" Background="#454135">
-
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

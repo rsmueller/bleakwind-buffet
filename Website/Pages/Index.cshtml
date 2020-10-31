@@ -1,0 +1,93 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}
+@using BleakwindBuffet.Data;
+@using BleakwindBuffet.Data.Enums;
+@using BleakwindBuffet.Data.Entrees;
+@using BleakwindBuffet.Data.Sides;
+@using BleakwindBuffet.Data.Drinks;
+
+<div class="text-center">
+	<h1 class="display-4">Welcome to Bleakwind Buffet</h1>
+	<p>
+		We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+		Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+		Hack into a Smokehouse Skeleton with your dagger.
+		Or vanquish the the mighty Thalmor Triple Burger!
+		You’ve had a hard adventure and earned your loot, so spend it with us!
+	</p>
+	<h2>Entrees</h2>
+	<div class="menu-item-grid">
+		@foreach (IOrderItem item in Menu.Entrees())
+		{
+			<div class="menu-item">
+				<div class="menu-item-name"><b>@item.DisplayName</b></div>
+				<div class="menu-item-price">Price: @item.Price</div>
+				<div class="menu-item-calories">Calories: @item.Calories</div>
+			</div>
+		}
+	</div>
+	<h2>Sides</h2>
+	<div class="menu-item-grid">
+		@foreach (Type sideType in Menu.SideTypes())
+		{
+
+			Side side = (Side)Activator.CreateInstance(sideType);
+
+
+			<div class="menu-item">
+				<div class="menu-item-name"><b>@side.DisplayName</b></div>
+				<div class="menu-item-size-grid">
+					@foreach (Size size in Sizes.GetSizes())
+					{
+						side.Size = size;
+						<div>
+							<div>@side.Size</div>
+							<div>Price: @side.Price</div>
+							<div>Calories: @side.Calories</div>
+						</div>
+					}
+				</div>
+			</div>
+
+		}
+	</div>
+	<h2>Drinks</h2>
+	<div class="menu-item-grid">
+		@foreach (Type drinkType in Menu.DrinkTypes())
+		{
+
+			Drink drink = (Drink)Activator.CreateInstance(drinkType);
+
+
+			<div class="menu-item">
+				<div class="menu-item-name"><b>@drink.DisplayName</b></div>
+				<div class="menu-item-size-grid">
+					@foreach (Size size in Sizes.GetSizes())
+					{
+						drink.Size = size;
+						<div>
+							<div>@drink.Size</div>
+							<div>Price: @drink.Price</div>
+							<div>Calories: @drink.Calories</div>
+						</div>
+					}
+				</div>
+			</div>
+		}
+	</div>
+	<h2>Combos</h2>
+	<p>
+		Any combination of entree, side, and drink can be combined into a Combo with a $1 discount
+	</p>
+	<h2>Soda Flavors</h2>
+	<p>Soda comes in these available flavors</p>
+	<ul>
+		@foreach (SodaFlavor flavor in SodaFlavors.GetFlavors())
+		{
+			<li>@flavor</li>
+		}
+	</ul>
+</div>
