@@ -18,76 +18,135 @@
 		Or vanquish the the mighty Thalmor Triple Burger!
 		You’ve had a hard adventure and earned your loot, so spend it with us!
 	</p>
-	<h2>Entrees</h2>
-	<div class="menu-item-grid">
-		@foreach (IOrderItem item in Menu.Entrees())
-		{
-			<div class="menu-item">
-				<div class="menu-item-name"><b>@item.DisplayName</b></div>
-				<div class="menu-item-price">Price: @item.Price</div>
-				<div class="menu-item-calories">Calories: @item.Calories</div>
+	<form id="menu-database">
+		<div id="search">
+			<input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+			<input type="submit" value="Search">
+		</div>
+
+		<div id="filters">
+			<h4>Categories</h4>
+			@foreach (string category in Menu.Categories)
+			{
+				<label>
+					<input type="checkbox" name="Categories" value="@category"
+						   checked="@Model.Categories.Contains(category)" />
+					@category
+				</label>
+			}
+
+			<h4>Price Range</h4>
+			<div>
+				Between
+				<input name="PriceMin" type="number" min="0" max="30" step=".25" placeholder="min" value="@Model.PriceMin" />
+				and
+				<input name="PriceMax" type="number" min="0" max="30" step=".25" placeholder="max" value="@Model.PriceMax"/>
 			</div>
-		}
-	</div>
-	<h2>Sides</h2>
-	<div class="menu-item-grid">
-		@foreach (Type sideType in Menu.SideTypes())
-		{
 
-			Side side = (Side)Activator.CreateInstance(sideType);
+			<h4>Calorie Range</h4>
+			<div>
+				Between
+				<input name="CalMin" type="number" min="0" max="2000" step="100" placeholder="min" value="@Model.CalMin"/>
+				and
+				<input name="CalMax" type="number" min="0" max="2000" step="100" placeholder="max" value="@Model.CalMax" />
+			</div>
+		</div>
+
+		<div id="results">
+			@if (Model.OrderItems.Count() == Menu.FullMenu().Count())
+			{
+				<div id="full-menu">
+					<h1>Full Menu</h1>
+					<h2>Entrees</h2>
+					<div class="menu-item-grid">
+						@foreach (IOrderItem item in Menu.Entrees())
+						{
+							<div class="menu-item">
+								<div class="menu-item-name"><b>@item.DisplayName</b></div>
+								<div class="menu-item-price">Price: @item.Price</div>
+								<div class="menu-item-calories">Calories: @item.Calories</div>
+							</div>
+						}
+					</div>
+					<h2>Sides</h2>
+					<div class="menu-item-grid">
+						@foreach (Type sideType in Menu.SideTypes())
+						{
+
+							Side side = (Side)Activator.CreateInstance(sideType);
 
 
-			<div class="menu-item">
-				<div class="menu-item-name"><b>@side.DisplayName</b></div>
-				<div class="menu-item-size-grid">
-					@foreach (Size size in Sizes.GetSizes())
+							<div class="menu-item">
+								<div class="menu-item-name"><b>@side.DisplayName</b></div>
+								<div class="menu-item-size-grid">
+									@foreach (Size size in Sizes.GetSizes())
+									{
+										side.Size = size;
+									<div>
+										<div class="menu-item-price">Price: @side.Price</div>
+										<div class="menu-item-calories">Calories: @side.Calories</div>
+										<div class="menu-item-size">@side.Size</div>
+									</div>
+									}
+								</div>
+							</div>
+
+						}
+					</div>
+					<h2>Drinks</h2>
+					<div class="menu-item-grid">
+						@foreach (Type drinkType in Menu.DrinkTypes())
+						{
+
+							Drink drink = (Drink)Activator.CreateInstance(drinkType);
+
+
+							<div class="menu-item">
+								<div class="menu-item-name"><b>@drink.DisplayName</b></div>
+								<div class="menu-item-size-grid">
+									@foreach (Size size in Sizes.GetSizes())
+									{
+										drink.Size = size;
+									<div>
+										<div class="menu-item-price">Price: @drink.Price</div>
+										<div class="menu-item-calories">Calories: @drink.Calories</div>
+										<div class="menu-item-size">@drink.Size</div>
+									</div>
+									}
+								</div>
+							</div>
+						}
+					</div>
+					<h2>Combos</h2>
+					<p>
+						Any combination of entree, side, and drink can be combined into a Combo with a $1 discount
+					</p>
+					<h2>Soda Flavors</h2>
+					<p>Soda comes in these available flavors</p>
+					<ul>
+						@foreach (SodaFlavor flavor in SodaFlavors.GetFlavors())
+						{
+							<li>@flavor</li>
+						}
+					</ul>
+				</div>
+			}
+			else
+			{
+				<h1>Search Results</h1>
+				<div class="menu-item-grid">
+					@foreach (IOrderItem item in Model.OrderItems)
 					{
-						side.Size = size;
-						<div>
-							<div>@side.Size</div>
-							<div>Price: @side.Price</div>
-							<div>Calories: @side.Calories</div>
+						<div class="menu-item">
+							<div class="menu-item-name"><b>@item.ToString()</b></div>
+							<div class="menu-item-price">Price: @item.Price</div>
+							<div class="menu-item-calories">Calories: @item.Calories</div>
 						</div>
 					}
 				</div>
-			</div>
+			}
+		</div>
+	</form>
+	
 
-		}
-	</div>
-	<h2>Drinks</h2>
-	<div class="menu-item-grid">
-		@foreach (Type drinkType in Menu.DrinkTypes())
-		{
-
-			Drink drink = (Drink)Activator.CreateInstance(drinkType);
-
-
-			<div class="menu-item">
-				<div class="menu-item-name"><b>@drink.DisplayName</b></div>
-				<div class="menu-item-size-grid">
-					@foreach (Size size in Sizes.GetSizes())
-					{
-						drink.Size = size;
-						<div>
-							<div>@drink.Size</div>
-							<div>Price: @drink.Price</div>
-							<div>Calories: @drink.Calories</div>
-						</div>
-					}
-				</div>
-			</div>
-		}
-	</div>
-	<h2>Combos</h2>
-	<p>
-		Any combination of entree, side, and drink can be combined into a Combo with a $1 discount
-	</p>
-	<h2>Soda Flavors</h2>
-	<p>Soda comes in these available flavors</p>
-	<ul>
-		@foreach (SodaFlavor flavor in SodaFlavors.GetFlavors())
-		{
-			<li>@flavor</li>
-		}
-	</ul>
 </div>

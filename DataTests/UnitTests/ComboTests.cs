@@ -82,15 +82,15 @@ namespace BleakwindBuffet.DataTests.UnitTests
 			x.Drink = new TestDrink();
 			List<string> init = new List<string>{ x.Entree.DisplayName, x.Side.DisplayName, x.Drink.DisplayName};
 			Assert.Collection<string>(x.SpecialInstructions,
-				str => Assert.Equal(x.Entree.DisplayName, str),
-				str => Assert.Equal(x.Side.DisplayName, str),
-				str => Assert.Equal(x.Drink.DisplayName, str));
+				str => Assert.Contains(x.Entree.DisplayName, str),
+				str => Assert.Contains(x.Side.DisplayName, str),
+				str => Assert.Contains(x.Drink.DisplayName, str));
 			((TestEntree)x.Entree).PartA = false;
 			Assert.Collection<string>(x.SpecialInstructions,
-				str => Assert.Equal(x.Entree.DisplayName, str),
-				str => Assert.Equal("PartA", str),
-				str => Assert.Equal(x.Side.DisplayName, str),
-				str => Assert.Equal(x.Drink.DisplayName, str));
+				str => Assert.Contains(x.Entree.DisplayName, str),
+				str => Assert.Contains("PartA", str),
+				str => Assert.Contains(x.Side.DisplayName, str),
+				str => Assert.Contains(x.Drink.DisplayName, str));
 		}
 
 		[Fact]

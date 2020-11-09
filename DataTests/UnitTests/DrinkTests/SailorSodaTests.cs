@@ -59,10 +59,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
-        public void FlavorShouldBeCherryByDefault()
+        public void FlavorShouldBeBlackberryByDefault()
         {
             var x = new SailorSoda();
-            Assert.Equal(SodaFlavor.Cherry, x.Flavor);
+            Assert.Equal(SodaFlavor.Blackberry, x.Flavor);
         }
 
         [Fact]
