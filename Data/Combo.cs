@@ -90,11 +90,16 @@ namespace BleakwindBuffet.Data
         /// </summary>
         public uint Calories { get { return Entree.Calories + Side.Calories + Drink.Calories; } }
 
-        /// <summary>
-        /// Special instructions for all items in the combo
-        /// DisplayName of items seperates each items specific instructions
-        /// </summary>
-        public List<string> SpecialInstructions { 
+		/// <summary>
+		/// The description of the Aretino Apple Juice
+		/// </summary>
+		public string Description { get; } = "A combo platter containing an Entree, Side, and Drink.";
+
+		/// <summary>
+		/// Special instructions for all items in the combo
+		/// DisplayName of items seperates each items specific instructions
+		/// </summary>
+		public List<string> SpecialInstructions { 
             get
             {
                 List<string> temp = new List<string>();

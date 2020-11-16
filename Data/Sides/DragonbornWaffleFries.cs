@@ -32,7 +32,13 @@ namespace BleakwindBuffet.Data.Sides
 		/// </summary>
 		public override uint Calories => caloriesArray[(int)size];
 
-        private List<string> specialInstructions = new List<string>();
+		string description = "Crispy fried potato waffle fries.";
+		/// <summary>
+		/// The description of the Dragonborn Waffle Fries
+		/// </summary>
+		public override string Description => description;
+
+		private List<string> specialInstructions = new List<string>();
 		/// <summary>
 		/// A list of special instructions for preparing the Dragonborn Waffle Fries
 		/// </summary>

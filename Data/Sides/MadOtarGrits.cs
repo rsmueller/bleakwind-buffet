@@ -32,7 +32,13 @@ namespace BleakwindBuffet.Data.Sides
 		/// </summary>
 		public override uint Calories => caloriesArray[(int)size];
 
-        private List<string> specialInstructions = new List<string>();
+		string description = "Cheesey Grits.";
+		/// <summary>
+		/// The description of the Mad Otar Grits
+		/// </summary>
+		public override string Description => description;
+
+		private List<string> specialInstructions = new List<string>();
 		/// <summary>
 		/// A list of special instructions for preparing the Mad Otar Grits
 		/// </summary>

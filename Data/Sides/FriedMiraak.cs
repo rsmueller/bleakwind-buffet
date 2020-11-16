@@ -32,7 +32,13 @@ namespace BleakwindBuffet.Data.Sides
 		/// </summary>
 		public override uint Calories => caloriesArray[(int)size];
 
-        private List<string> specialInstructions = new List<string>();
+		string description = "Perfectly prepared hash brown pancakes.";
+		/// <summary>
+		/// The description of the Fried Miraak
+		/// </summary>
+		public override string Description => description;
+
+		private List<string> specialInstructions = new List<string>();
 		/// <summary>
 		/// A list of special instructions for preparing the Fried Miraak
 		/// </summary>

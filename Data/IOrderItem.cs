@@ -33,6 +33,11 @@ namespace BleakwindBuffet.Data
 		/// </summary>
 		public List<string> SpecialInstructions { get; }
 
+		/// <summary>
+		/// A brief sentence describing the OrderItem.
+		/// </summary>
+		public string Description { get; }
+
 
 	}
 }

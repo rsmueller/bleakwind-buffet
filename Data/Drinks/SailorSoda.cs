@@ -31,7 +31,13 @@ namespace BleakwindBuffet.Data.Drinks
 		/// The calories in the Sailor Soda
 		/// </summary>
 		public override uint Calories => caloriesArray[(uint)size];
-		
+
+		string description = "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
+		/// <summary>
+		/// The description of the Sailor Soda
+		/// </summary>
+		public override string Description => description;
+
 		private Size size = Size.Small;
 		/// <summary>
 		/// The size of the Sailor Soda

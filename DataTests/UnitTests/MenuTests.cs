@@ -611,6 +611,15 @@ namespace BleakwindBuffet.DataTests.UnitTests
 				Assert.True(item.Calories >= 201);
 			}
 
+
+			//should contain everything over 200 and under 500 calories
+			IEnumerable<IOrderItem> meh = Menu.FilterByCalories(Menu.FullMenu(), 201, 499);
+			foreach (IOrderItem item in meh)
+			{
+				Assert.True(item.Calories >= 201);
+				Assert.True(item.Calories <= 499);
+			}
+
 			//The combined size of both should be the entire menu.
 			Assert.Equal(Menu.FullMenu().Count(), lessEq200.Count() + great200.Count());
 
@@ -638,6 +647,15 @@ namespace BleakwindBuffet.DataTests.UnitTests
 			foreach (IOrderItem item in great3)
 			{
 				Assert.True(item.Price >= 3.01);
+			}
+
+
+			//should contain everything over 3 and under 5 dollars
+			IEnumerable<IOrderItem> meh = Menu.FilterByPrice(Menu.FullMenu(), 3.01, 4.99);
+			foreach (IOrderItem item in meh)
+			{
+				Assert.True(item.Price >= 3.01);
+				Assert.True(item.Price <= 4.99);
 			}
 
 			//The combined size of both should be the entire menu.

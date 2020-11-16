@@ -350,5 +350,6 @@ namespace BleakwindBuffet.Data
 			}
 			return filtered;
 		}
+
 	}
 }

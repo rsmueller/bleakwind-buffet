@@ -39,10 +39,67 @@ namespace Website.Pages
 			this.PriceMin = PriceMin;
 			this.PriceMax = PriceMax;
 
-			OrderItems = Menu.Search(Menu.FullMenu(), SearchTerms);
+			/*OrderItems = Menu.Search(Menu.FullMenu(), SearchTerms);
 			OrderItems = Menu.FilterByCategory(OrderItems, Categories);
 			OrderItems = Menu.FilterByCalories(OrderItems, CalMin, CalMax);
-			OrderItems = Menu.FilterByPrice(OrderItems, PriceMin, PriceMax);
+			OrderItems = Menu.FilterByPrice(OrderItems, PriceMin, PriceMax);*/
+			OrderItems = Menu.FullMenu();
+			if (SearchTerms != null && SearchTerms.Length != 0)
+			{
+				OrderItems = OrderItems.Where(item => DoesItemHaveSearchTerms(item));
+			}
+			if (Categories != null && Categories.Length != 0)
+			{
+				OrderItems = OrderItems.Where(item => IsItemOfCategory(item));
+			}
+
+			if (CalMin != null)
+			{
+				OrderItems = OrderItems.Where(item => item.Calories >= CalMin);
+			}
+			if (CalMax != null)
+			{
+				OrderItems = OrderItems.Where(item => item.Calories <= CalMax);
+			}
+			if (PriceMin != null)
+			{
+				OrderItems = OrderItems.Where(item => item.Price >= PriceMin);
+			}
+			if (PriceMax != null)
+			{
+				OrderItems = OrderItems.Where(item => item.Price <= PriceMax);
+			}
+		}
+
+		private bool DoesItemHaveSearchTerms(IOrderItem item)
+		{
+			string[] terms = SearchTerms.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+			string itemString = item.DisplayName + " " + item.Description;
+			foreach (string term in terms)
+			{
+				if ( ! itemString.Contains(term, StringComparison.InvariantCultureIgnoreCase))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
+		private bool IsItemOfCategory(IOrderItem item)
+		{
+			if (item is Entree)
+			{
+				return Categories.Contains("Entrees");
+			}
+			else if (item is Side)
+			{
+				return Categories.Contains("Sides");
+			}
+			else if (item is Drink)
+			{
+				return Categories.Contains("Drinks");
+			}
+			throw new NotImplementedException($"IOrderItem {item.DisplayName} is of an unimplemented category");
 		}
 	}
 }

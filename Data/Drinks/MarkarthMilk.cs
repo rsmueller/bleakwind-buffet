@@ -32,6 +32,12 @@ namespace BleakwindBuffet.Data.Drinks
 		/// </summary>
 		public override uint Calories => caloriesArray[(uint)size];
 
+		string description = "Hormone-free organic 2% milk.";
+		/// <summary>
+		/// The description of the Markarth Milk
+		/// </summary>
+		public override string Description => description;
+
 		private Size size = Size.Small;
 		/// <summary>
 		/// The size of the Markarth Milk

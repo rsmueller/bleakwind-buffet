@@ -32,7 +32,13 @@ namespace BleakwindBuffet.Data.Sides
 		/// </summary>
 		public override uint Calories => caloriesArray[(int)size];
 
-        private List<string> specialInstructions = new List<string>();
+		string description = "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+		/// <summary>
+		/// The description of the Vokun Salad
+		/// </summary>
+		public override string Description => description;
+
+		private List<string> specialInstructions = new List<string>();
 		/// <summary>
 		/// A list of special instructions for preparing the Vokun Salad
 		/// </summary>

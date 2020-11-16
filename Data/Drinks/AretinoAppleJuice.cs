@@ -32,6 +32,12 @@ namespace BleakwindBuffet.Data.Drinks
 		/// </summary>
 		public override uint Calories => caloriesArray[(uint)size];
 
+		string description = "Fresh squeezed apple juice.";
+		/// <summary>
+		/// The description of the Aretino Apple Juice
+		/// </summary>
+		public override string Description => description;
+
 		private Size size = Size.Small;
 		/// <summary>
 		/// The size of the Aretino Apple Juice
